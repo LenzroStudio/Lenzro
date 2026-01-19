@@ -1,9 +1,8 @@
 import { M_PLUS_1_Code, Outfit } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/shared/navbar";
-import { ThemeProvider } from "@/components/theme-provider";
 
-const outifit = Outfit({
+
+const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
   weight: "400",
@@ -15,23 +14,15 @@ const mplusone = M_PLUS_1_Code({
 });
 
 export const metadata = {
-  title: "Lenzro",
-  description: "The operating system for modern businesses and startups",
+  title: "Onboarding",
+  description: "Onboarding , Launch your business now",
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={` ${mplusone.variable} antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
           {children}
-        </ThemeProvider>
       </body>
     </html>
   );
