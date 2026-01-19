@@ -1,5 +1,5 @@
 import { M_PLUS_1_Code, Outfit } from "next/font/google";
-import "./globals.css";
+import "../globals.css";
 
 
 const outfit = Outfit({
