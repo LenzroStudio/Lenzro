@@ -26,8 +26,8 @@ export default function CookieConsent() {
           exit={{ y: 100, opacity: 0 }} // slide back down
           transition={{ duration: 0.4, ease: "easeInOut" }}
           className="
-            fixed bottom-6 md:left-60 -translate-x-1/2 z-[9999]
-            border rounded-xl shadow-lg px-6 py-5 flex flex-col gap-4
+            fixed bottom-6 left-1/2 -translate-x-1/2 md:left-60 md:translate-x-0
+            z-[9999] border rounded-xl shadow-lg px-6 py-5 flex flex-col gap-4
             min-w-[320px] max-w-[95vw]
             bg-white text-black
             dark:bg-zinc-950 dark:text-white

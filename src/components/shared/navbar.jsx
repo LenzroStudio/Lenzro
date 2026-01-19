@@ -81,7 +81,7 @@ const Navbar = () => {
 
         {/* Mobile Navbar */}
         <div className="lg:hidden block w-full p-2">
-          <div className="w-full flex relative justify-between md:px-4 py-1 rounded-full bg-transparent transition duration-200">
+          <div className="w-full flex relative justify-between md:px-4 md:py-1  py-2 rounded-full bg-transparent transition duration-200">
             <div className="flex flex-row gap-2 items-center">
               <Link
                 className="font-normal flex space-x-2 items-center text-sm mr-4 text-black px-2 py-1 relative z-20"

@@ -46,11 +46,11 @@ const Hero = () => {
             Relax. Your business lives here.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mt-5">
-            <Button className="px-5 py-2 text-sm h-10 rounded-sm bg-background hover:bg-accent cursor-pointer transition-all duration-300 text-foreground border">
+          <div className="flex flex-col sm:flex-row gap-4 mt-5 w-full">
+            <Button className="w-full sm:w-auto px-5 py-2 text-sm h-10 rounded-sm bg-background hover:bg-accent cursor-pointer transition-all duration-300 text-foreground border">
               Launch your business
             </Button>
-            <Button className="px-5 py-2 text-sm h-10 rounded-sm cursor-pointer transition-all duration-300 border">
+            <Button className="w-full sm:w-auto px-5 py-2 text-sm h-10 rounded-sm cursor-pointer transition-all duration-300 border">
               View pricing
             </Button>
           </div>
