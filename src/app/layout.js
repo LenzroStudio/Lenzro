@@ -2,6 +2,7 @@ import { M_PLUS_1_Code, Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
+import CookieConsent from "@/components/shared/CookieConsent";
 
 const outifit = Outfit({
   variable: "--font-outfit",
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
           disableTransitionOnChange
         >
           <Navbar />
+          <CookieConsent />
           {children}
         </ThemeProvider>
       </body>

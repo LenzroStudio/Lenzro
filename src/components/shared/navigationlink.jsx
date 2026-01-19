@@ -22,7 +22,6 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { DottedGlowBackgroundDemo } from "./DottedGlowBackgroundDemo";
 
@@ -83,15 +82,19 @@ const solutions = [
   },
 ];
 
-
-export function NavigationMenuLinks() {
+export function NavigationMenuLinks({ onLinkClick }) {
   const isMobile = useIsMobile();
 
   return (
     <NavigationMenu viewport={isMobile}>
-      <NavigationMenuList className="flex-wrap">
-        {/* Home dropdown */}
-        <NavigationMenuItem>
+      <NavigationMenuList
+        className="
+          flex flex-col gap-6 px-2
+          md:flex-row md:flex-nowrap md:items-center items-start md:gap-4
+        "
+      >
+        {/* Home dropdown (hidden on mobile) */}
+        <NavigationMenuItem className="hidden md:block">
           <NavigationMenuTrigger>Home</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
@@ -100,13 +103,21 @@ export function NavigationMenuLinks() {
                   <DottedGlowBackgroundDemo />
                 </NavigationMenuLink>
               </li>
-              <ListItem href="/docs" title="Introduction">
+              <ListItem href="/docs" title="Introduction" onClick={onLinkClick}>
                 Lenzro is the operating system for modern businesses & creators.
               </ListItem>
-              <ListItem href="/docs/guide" title="How to use it">
+              <ListItem
+                href="/docs/guide"
+                title="How to use it"
+                onClick={onLinkClick}
+              >
                 Login then start running your business, as simple as that.
               </ListItem>
-              <ListItem href="/register" title="Get Started">
+              <ListItem
+                href="/register"
+                title="Get Started"
+                onClick={onLinkClick}
+              >
                 Create your account and start running your business today.
               </ListItem>
             </ul>
@@ -119,41 +130,22 @@ export function NavigationMenuLinks() {
             asChild
             className="px-3 py-1 text-sm text-black dark:text-white hover:text-green-500 transition-colors"
           >
-            <Link href="/docs">Docs</Link>
+            <Link href="/docs" onClick={onLinkClick}>
+              Docs
+            </Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
 
-        {/* Solutions dropdown */}
-        <NavigationMenuItem className="hidden md:block">
-          <NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid gap-4 w-[200px] lg:w-[800px] lg:grid-cols-3 p-3">
-              {solutions.map((item, index) => (
-                <li key={index}>
-                  <div>
-                    <Link
-                      href={item.href}
-                      className="flex items-start gap-3 rounded-md p-3 transition-colors hover:bg-accent"
-                    >
-                      <div className="rounded-xl border p-2 flex-shrink-0">
-                        {item.icon}
-                      </div>
-                      <div className="flex flex-col">
-                        <span className="text-sm font-medium text-black dark:text-white">
-                          {item.title}
-                        </span>
-                        {item.description && (
-                          <span className="text-xs text-gray-600 dark:text-gray-300 mt-1 leading-snug">
-                            {item.description}
-                          </span>
-                        )}
-                      </div>
-                    </Link>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </NavigationMenuContent>
+        {/* Solutions link */}
+        <NavigationMenuItem>
+          <NavigationMenuLink
+            asChild
+            className="px-3 py-1 text-sm text-black dark:text-white hover:text-green-500 transition-colors"
+          >
+            <Link href="/solutions" onClick={onLinkClick}>
+              Solutions
+            </Link>
+          </NavigationMenuLink>
         </NavigationMenuItem>
 
         {/* Pricing link */}
@@ -162,7 +154,9 @@ export function NavigationMenuLinks() {
             asChild
             className="px-3 py-1 text-sm text-black dark:text-white hover:text-green-500 transition-colors"
           >
-            <Link href="/pricing">Pricing</Link>
+            <Link href="/pricing" onClick={onLinkClick}>
+              Pricing
+            </Link>
           </NavigationMenuLink>
         </NavigationMenuItem>
       </NavigationMenuList>
@@ -170,11 +164,11 @@ export function NavigationMenuLinks() {
   );
 }
 
-function ListItem({ title, children, href, ...props }) {
+function ListItem({ title, children, href, onClick, ...props }) {
   return (
     <li {...props}>
       <NavigationMenuLink asChild>
-        <Link href={href}>
+        <Link href={href} onClick={onClick}>
           <div className="text-sm font-medium">{title}</div>
           <p className="text-gray-600 line-clamp-2 text-sm leading-snug">
             {children}

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Bot, Spline, SquareMousePointer } from "lucide-react";
 import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
+import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
 
 const Tour = () => {
   const steps = [
@@ -47,7 +48,14 @@ const Tour = () => {
       <div className="flex flex-col  grid-cols-2  h-full w-screen">
         {/* Top Section */}
         <div className="w-full h-1/2 flex py-10 flex-col  text-center gap-4 items-center justify-center">
-          <p className="gradient-text text-sm font-normal">How it works</p>
+          <AnimatedGradientText
+            speed={2}
+            colorFrom="#4ade80"
+            colorTo="#06b6d4"
+            className="text-xl font-semibold tracking-tight"
+          >
+            How it works
+          </AnimatedGradientText>
           <h1 className="text-4xl">Easy Integration</h1>
           <p>
             We empower businesses to build tools that streamline their

@@ -6,7 +6,7 @@ export function DottedGlowBackgroundDemo() {
     <div className="relative flex size-20 items-end justify-end overflow-hidden rounded-md rounded-tl-3xl rounded-br-3xl rounded-bl-3xl border border-transparent px-4 shadow ring-1 shadow-black/10 ring-black/5 md:size-60 dark:shadow-white/10 dark:ring-white/5">
       <img
         src="https://1j8rp7fkdq62hja2.public.blob.vercel-storage.com/Plugin%20icon%20-%202%20%281%29.png"
-        className="absolute inset-0 z-20 m-auto size-10 md:size-20 rounded-xl"
+        className="absolute inset-0 z-50 m-auto size-10 md:size-20 rounded-xl"
       />
       <DottedGlowBackground
         className="pointer-events-none mask-radial-to-90% mask-radial-at-center"
