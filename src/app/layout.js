@@ -23,7 +23,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={` ${mplusone.variable} antialiased`}>
+      <body className={`${mplusone.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

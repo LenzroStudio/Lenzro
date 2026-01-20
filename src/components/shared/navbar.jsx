@@ -27,7 +27,7 @@ const MobileMenu = ({ open, onClose }) => (
           <div className="px-4 pt-6 flex flex-col gap-6">
             <ModeToggle />
             <Link href="/signup" onClick={onClose}>
-              <Button className="px-5 py-2 text-xs h-7 rounded-sm cursor-pointer transition-all duration-300 border">
+              <Button className=" px-8 md:px-5 py-4 md:py-2 text-sm  md:text-xs h-7 rounded-sm cursor-pointer transition-all duration-300 border">
                 Get Started
               </Button>
             </Link>
@@ -45,7 +45,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="fixed bg-white/60 dark:bg-black/70 backdrop-blur-3xl mx-auto border-b inset-x-0 z-50 lg:w-full">
-        <ScrollProgress className="top-0" />
+        <ScrollProgress className="top-15" />
 
         {/* Desktop Navbar */}
         <div className="hidden lg:block w-full p-2">

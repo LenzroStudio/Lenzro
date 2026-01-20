@@ -11,7 +11,7 @@ import React from "react";
 
 const Hero = () => {
   return (
-    <div className="min-h-[85vh] px-4 py-8 flex items-center justify-center">
+    <div className="px-4 py-8 flex items-center justify-center">
       <div className="w-full max-w-7xl flex flex-col lg:grid lg:grid-cols-2 gap-8 items-center">
         {/* Left Content */}
         <div className="relative z-20 rounded-xl p-4 sm:p-6 lg:p-8 flex flex-col gap-4 w-full items-center text-center lg:items-start lg:text-left">
@@ -47,7 +47,7 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-5 w-full">
-            <Button className="w-full sm:w-auto px-5 py-2 text-sm h-10 rounded-sm bg-background hover:bg-accent cursor-pointer transition-all duration-300 text-foreground border">
+            <Button className="w-full sm:w-auto px-5 py-2 text-sm h-10 rounded-sm dark:bg-accent hover:bg-gray-800 text-white cursor-pointer transition-all duration-300 dark:text-foreground border">
               Launch your business
             </Button>
             <Button className="w-full sm:w-auto px-5 py-2 text-sm h-10 rounded-sm cursor-pointer transition-all duration-300 border">

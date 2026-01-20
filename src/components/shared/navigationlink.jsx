@@ -89,12 +89,12 @@ export function NavigationMenuLinks({ onLinkClick }) {
     <NavigationMenu viewport={isMobile}>
       <NavigationMenuList
         className="
-          flex flex-col gap-6 px-2
+          flex flex-col  px-2
           md:flex-row md:flex-nowrap md:items-center items-start md:gap-4
         "
       >
         {/* Home dropdown (hidden on mobile) */}
-        <NavigationMenuItem className="hidden md:block">
+        <NavigationMenuItem className="hidden md:block z-20">
           <NavigationMenuTrigger>Home</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid gap-2 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
@@ -128,7 +128,7 @@ export function NavigationMenuLinks({ onLinkClick }) {
         <NavigationMenuItem>
           <NavigationMenuLink
             asChild
-            className="px-3 py-1 text-sm text-black dark:text-white hover:text-green-500 transition-colors"
+            className="px-3 py-1 text-lg md:text-sm text-black dark:text-white hover:text-green-500 transition-colors"
           >
             <Link href="/docs" onClick={onLinkClick}>
               Docs
@@ -140,7 +140,7 @@ export function NavigationMenuLinks({ onLinkClick }) {
         <NavigationMenuItem>
           <NavigationMenuLink
             asChild
-            className="px-3 py-1 text-sm text-black dark:text-white hover:text-green-500 transition-colors"
+            className="px-3 py-1 text-lg md:text-sm text-black dark:text-white hover:text-green-500 transition-colors"
           >
             <Link href="/solutions" onClick={onLinkClick}>
               Solutions
@@ -152,7 +152,7 @@ export function NavigationMenuLinks({ onLinkClick }) {
         <NavigationMenuItem>
           <NavigationMenuLink
             asChild
-            className="px-3 py-1 text-sm text-black dark:text-white hover:text-green-500 transition-colors"
+            className="px-3 py-1 text-lg md:text-sm text-black dark:text-white hover:text-green-500 transition-colors"
           >
             <Link href="/pricing" onClick={onLinkClick}>
               Pricing
