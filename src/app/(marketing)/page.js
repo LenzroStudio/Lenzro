@@ -48,12 +48,12 @@ export default function Home() {
 
   // Public landing page content here
   return (
-    <div className="pt-10">
+    <div className="pt-10 flex flex-col gap-10 md:gap-14">
         <Hero/>
-        {/* <DashDemo/>
+        <Trusted/>
         <Tour/>
-        <Features/>
-        <Trusted/> */}
+        {/* <DashDemo/>
+        <Features/> */}
     </div>
   );
 }

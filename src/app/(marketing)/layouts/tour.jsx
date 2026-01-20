@@ -1,174 +1,229 @@
 "use client";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import React, { useState, useEffect } from "react";
-import { AnimatePresence, motion } from "framer-motion";
-import { Bot, Spline, SquareMousePointer } from "lucide-react";
-import { CanvasRevealEffect } from "@/components/ui/canvas-reveal-effect";
-import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
+import { Timeline } from "@/components/ui/timeline";
 
 const Tour = () => {
-  const steps = [
+
+  const data = [
     {
-      title: "Create your Workspace",
-      description:
-        "Set up your business space where everything lives — your brand, clients, files, and website.",
-      icon: <SquareMousePointer className="size-4" />,
-      bg: "bg-emerald-900",
+      title: "Create your account",
+      content: (
+        <div>
+          <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+            Create your Lenzro account and instantly get a dedicated workspace
+            where your business lives — clients, payments, files, website, and
+            AI.
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              src="https://assets.aceternity.com/templates/startup-1.webp"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            />
+            <img
+              src="https://assets.aceternity.com/templates/startup-2.webp"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            />
+            <img
+              src="https://assets.aceternity.com/templates/startup-3.webp"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            />
+            <img
+              src="https://assets.aceternity.com/templates/startup-4.webp"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            />
+          </div>
+        </div>
+      ),
     },
+
     {
-      title: "Connect your Pages",
-      description:
-        "Build and link your business pages and content inside your workspace.",
-      icon: <Spline className="size-4" />,
-      bg: "bg-black",
+      title: "Set up your workspace",
+      content: (
+        <div>
+          <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+            Define how your business works. Add your brand, business type, and
+            core modules. Lenzro adapts the system to you — not the other way
+            around.
+          </p>
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              src="https://assets.aceternity.com/pro/hero-sections.png"
+              alt="hero template"
+              width={500}
+              height={500}
+              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            />
+            <img
+              src="https://assets.aceternity.com/features-section.png"
+              alt="feature template"
+              width={500}
+              height={500}
+              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            />
+            <img
+              src="https://assets.aceternity.com/pro/bento-grids.png"
+              alt="bento template"
+              width={500}
+              height={500}
+              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            />
+            <img
+              src="https://assets.aceternity.com/cards.png"
+              alt="cards template"
+              width={500}
+              height={500}
+              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            />
+          </div>
+        </div>
+      ),
     },
+
     {
-      title: "Manage them with our Agent",
-      description:
-        "Let your Lenzro AI help you organize, track, and run your business from one dashboard.",
-      icon: <Bot className="size-4" />,
-      bg: "bg-sky-600",
+      title: "Create & connect pages",
+      content: (
+        <div>
+          <p className="mb-4 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+            Pages are where work happens. Each page can hold widgets, data,
+            files, and views — all connected and searchable.
+          </p>
+
+          <div className="mb-8 space-y-2">
+            <div className="text-xs md:text-sm text-neutral-700 dark:text-neutral-300">
+              • Client pages with notes, payments, and history
+            </div>
+            <div className="text-xs md:text-sm text-neutral-700 dark:text-neutral-300">
+              • Order pages linked to invoices and delivery status
+            </div>
+            <div className="text-xs md:text-sm text-neutral-700 dark:text-neutral-300">
+              • Project pages with tasks, files, and timelines
+            </div>
+            <div className="text-xs md:text-sm text-neutral-700 dark:text-neutral-300">
+              • Website pages connected directly to live content
+            </div>
+            <div className="text-xs md:text-sm text-neutral-700 dark:text-neutral-300">
+              • Internal pages for strategy, notes, and planning
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              src="https://assets.aceternity.com/templates/startup-1.webp"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            />
+            <img
+              src="https://assets.aceternity.com/templates/startup-2.webp"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            />
+            <img
+              src="https://assets.aceternity.com/templates/startup-3.webp"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            />
+            <img
+              src="https://assets.aceternity.com/templates/startup-4.webp"
+              alt="startup template"
+              width={500}
+              height={500}
+              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            />
+          </div>
+        </div>
+      ),
+    },
+
+    {
+      title: "Run everything with your AI agent",
+      content: (
+        <div>
+          <p className="mb-8 text-xs font-normal text-neutral-800 md:text-sm dark:text-neutral-200">
+            Your Lenzro AI works from the Blackboard — tracking activity,
+            updating pages, sending follow-ups, and keeping your business
+            organized.
+          </p>
+
+          <div className="mb-8 space-y-2">
+            <div className="text-xs md:text-sm text-neutral-700 dark:text-neutral-300">
+              • Updates pages automatically
+            </div>
+            <div className="text-xs md:text-sm text-neutral-700 dark:text-neutral-300">
+              • Tracks orders, payments, and revenue
+            </div>
+            <div className="text-xs md:text-sm text-neutral-700 dark:text-neutral-300">
+              • Replies to clients and sends follow-ups
+            </div>
+            <div className="text-xs md:text-sm text-neutral-700 dark:text-neutral-300">
+              • Organizes files and business data
+            </div>
+            <div className="text-xs md:text-sm text-neutral-700 dark:text-neutral-300">
+              • Keeps dashboards and priorities up to date
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            <img
+              src="https://assets.aceternity.com/pro/hero-sections.png"
+              alt="hero template"
+              width={500}
+              height={500}
+              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            />
+            <img
+              src="https://assets.aceternity.com/features-section.png"
+              alt="feature template"
+              width={500}
+              height={500}
+              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            />
+            <img
+              src="https://assets.aceternity.com/pro/bento-grids.png"
+              alt="bento template"
+              width={500}
+              height={500}
+              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            />
+            <img
+              src="https://assets.aceternity.com/cards.png"
+              alt="cards template"
+              width={500}
+              height={500}
+              className="h-20 w-full rounded-lg object-cover shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset] md:h-44 lg:h-60"
+            />
+          </div>
+        </div>
+      ),
     },
   ];
 
-  const [activeStep, setActiveStep] = useState(0);
 
-  // Auto‑advance when progress bar finishes
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setActiveStep((prev) => (prev + 1) % steps.length);
-    }, 8000); // ⏳ slower: 8s per step
-    return () => clearTimeout(timer);
-  }, [activeStep]);
-
+  
   return (
-    <div className="flex items-center justify-between">
-      <div className="w-15  h-full"></div>
-
-      <div className="flex flex-col  grid-cols-2  h-full w-screen">
-        {/* Top Section */}
-        <div className="w-full h-1/2 flex py-10 flex-col  text-center gap-4 items-center justify-center">
-          <AnimatedGradientText
-            speed={2}
-            colorFrom="#4ade80"
-            colorTo="#06b6d4"
-            className="text-xl font-semibold tracking-tight"
-          >
-            How it works
-          </AnimatedGradientText>
-          <h1 className="text-4xl">Easy Integration</h1>
-          <p>
-            We empower businesses to build tools that streamline their
-            operations <br /> and enable AI‑driven workflows.
-          </p>
-        </div>
-
-        {/* Steps Section */}
-        <Card className=" bg-transparent">
-          <CardHeader>
-            <h3 className="text-lg font-semibold"></h3>
-          </CardHeader>
-
-          <CardContent className="grid grid-cols-2 h-full">
-            {/* Left: Step selector with loading bar */}
-            <div className="grid grid-cols-1  w-full h-full">
-              {steps.map((step, idx) => (
-                <StepCard
-                  key={idx}
-                  step={step}
-                  active={activeStep === idx}
-                  onClick={() => setActiveStep(idx)} // 👈 clicking cancels others
-                />
-              ))}
-            </div>
-
-            {/* Right: Animated step content */}
-            <div className="flex items-center justify-center p-10">
-              <AnimatePresence mode="wait">
-                <motion.div
-                  key={activeStep}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
-                  className="max-w-md text-center"
-                >
-                  <div className="text-3xl mb-4">{steps[activeStep].icon}</div>
-                  <h2 className="text-xl font-bold mb-2">
-                    {steps[activeStep].title}
-                  </h2>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
-                    {steps[activeStep].description}
-                  </p>
-                </motion.div>
-              </AnimatePresence>
-            </div>
-          </CardContent>
-        </Card>
-      </div>
-
-      <div className="w-15  h-full"></div>
+    <div className="relative w-full overflow-clip">
+      <Timeline data={data} />
     </div>
   );
 };
 
 export default Tour;
 
-/* StepCard with CanvasRevealEffect + progress bar */
-const StepCard = ({ step, active, onClick }) => {
-  const [hovered, setHovered] = useState(false);
-  const showWhite = hovered || active;
-
-  return (
-    <div
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-      onClick={onClick}
-      className="relative p-10  cursor-pointer transition-all"
-    >
-      <AnimatePresence>
-        {active && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="absolute inset-0 h-full w-full z-0 pointer-events-none"
-          >
-            <CanvasRevealEffect
-              animationSpeed={3}
-              containerClassName={step.bg + " pointer-events-none"}
-              colors={[[125, 211, 252]]}
-            />
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Text always visible */}
-      <div
-        className={`relative z-10 flex flex-col gap-2 ${
-          showWhite ? "text-white" : "text-gray-700 dark:text-gray-300"
-        }`}
-      >
-        <div className="flex items-center gap-2">
-          {React.cloneElement(step.icon, {
-            className: `${step.icon.props.className || ""} ${
-              showWhite ? "text-white" : "text-gray-700 dark:text-gray-300"
-            }`,
-          })}
-          <div className="text-md uppercase tracking-wide">{step.title}</div>
-        </div>
-        <p className="text-sm">{step.description}</p>
-      </div>
-
-      {/* Progress bar */}
-      {active && (
-        <motion.div
-          initial={{ width: "0%" }}
-          animate={{ width: "100%" }}
-          transition={{ duration: 10, ease: "linear" }} // ⏳ slower
-          className="absolute bottom-0 left-0 h-[2px] bg-green-500" // thinner line
-        />
-      )}
-    </div>
-  );
-};

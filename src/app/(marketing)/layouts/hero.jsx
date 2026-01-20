@@ -5,6 +5,7 @@ import { BentoDemo } from "@/components/shared/bentodemo";
 import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
 import { AnimatedShinyText } from "@/components/ui/animated-shiny-text";
 import { Button } from "@/components/ui/button";
+import { ShinyButton } from "@/components/ui/shiny-button";
 import { cn } from "@/lib/utils";
 import { ArrowRightIcon, Bot, Brain, Star } from "lucide-react";
 import React from "react";
@@ -47,9 +48,9 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-5 w-full">
-            <Button className="w-full sm:w-auto px-5 py-2 text-sm h-10 rounded-sm dark:bg-accent hover:bg-gray-800 text-white cursor-pointer transition-all duration-300 dark:text-foreground border">
+            <ShinyButton className="w-full sm:w-auto px-5 py-2 text-sm h-10 rounded-sm  cursor-pointer transition-all duration-300 border">
               Launch your business
-            </Button>
+            </ShinyButton>
             <Button className="w-full sm:w-auto px-5 py-2 text-sm h-10 rounded-sm cursor-pointer transition-all duration-300 border">
               View pricing
             </Button>

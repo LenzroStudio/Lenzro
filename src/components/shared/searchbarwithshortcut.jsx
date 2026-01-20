@@ -26,6 +26,10 @@ const docs = [
         title: "How Lenzro is Different",
         route: "/docs/how-lenzro-is-different",
       },
+      {
+        title: "Our Lenzro Team",
+        route: "/docs/our-lenzro-team",
+      },
     ],
   },
   {
