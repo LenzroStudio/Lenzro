@@ -1,12 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import dynamic from "next/dynamic";
 import Hero from "./layouts/hero";
 import Trusted from "./layouts/trusted";
-import DashDemo from "./layouts/dashdemo";
 import Tour from "./layouts/tour";
-import Features from "./layouts/features";
+import Solutions from "./layouts/solutions";
+import BlackBoard from "./layouts/blackboard";
+import Community from "./layouts/community";
 
 
 
@@ -52,8 +52,9 @@ export default function Home() {
         <Hero/>
         <Trusted/>
         <Tour/>
-        {/* <DashDemo/>
-        <Features/> */}
+        <Solutions/>
+        <BlackBoard/>
+        <Community/>
     </div>
   );
 }

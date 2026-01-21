@@ -2,17 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import {
-  BotMessageSquare,
-  ChartNoAxesCombined,
-  Earth,
-  FilePlusCorner,
-  HandCoins,
-  LayoutDashboard,
-  Mails,
-  Sparkles,
-  Users,
-} from "lucide-react";
+
 
 import { useIsMobile } from "@/hooks/use-mobile";
 import {
@@ -25,62 +15,7 @@ import {
 } from "@/components/ui/navigation-menu";
 import { DottedGlowBackgroundDemo } from "./DottedGlowBackgroundDemo";
 
-const solutions = [
-  {
-    title: "Dashboard",
-    href: "/app/dashboard",
-    icon: <LayoutDashboard className="w-5 h-5" />,
-    description: "Manage your business.",
-  },
-  {
-    title: "Website",
-    href: "/app/website",
-    icon: <Earth className="w-5 h-5" />,
-    description: "Your site, pages, landing pages",
-  },
-  {
-    title: "Brand",
-    href: "/app/brand",
-    icon: <Sparkles className="w-5 h-5" />,
-    description: "Logos, colors, fonts, templates",
-  },
-  {
-    title: "Clients",
-    href: "/app/clients",
-    icon: <Users className="w-5 h-5" />,
-    description: "Leads, customers, contacts",
-  },
-  {
-    title: "Payments",
-    href: "/app/payments",
-    icon: <HandCoins className="w-5 h-5" />,
-    description: "Invoices, subscriptions, sales",
-  },
-  {
-    title: "Files",
-    href: "/app/files",
-    icon: <FilePlusCorner className="w-5 h-5" />,
-    description: "Designs, contracts, assets",
-  },
-  {
-    title: "Email",
-    href: "/app/email",
-    icon: <Mails className="w-5 h-5" />,
-    description: "Notifications, updates",
-  },
-  {
-    title: "Analytics",
-    href: "/app/analytics",
-    icon: <ChartNoAxesCombined className="w-5 h-5" />,
-    description: "Visitors, conversions, revenue",
-  },
-  {
-    title: "AI Agent",
-    href: "/app/agent",
-    icon: <BotMessageSquare className="w-5 h-5" />,
-    description: "Assist your workflows with AI.",
-  },
-];
+
 
 export function NavigationMenuLinks({ onLinkClick }) {
   const isMobile = useIsMobile();

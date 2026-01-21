@@ -28,7 +28,7 @@ export const Timeline = ({ data }) => {
 
   return (
     <div className="w-full  font-sans md:!px-10" ref={containerRef}>
-      <div className="max-w-7xl mx-auto pt-10 md:!pt-20 pb-10 !px-4 md:px-8 lg:!px-10">
+      <div className="max-w-7xl mx-auto pt-10 md:!pt-15  !px-4 md:px-8 lg:!px-10">
         {/* Top Section */}
         <h1 className="text-4xl leading-none font-semibold tracking-tighter text-balance md:text-5xl lg:text-6xl">
           Launch in
@@ -42,7 +42,7 @@ export const Timeline = ({ data }) => {
           <span className="hidden md:flex"> and enable AI‑driven workflows.</span>
         </p>
       </div>
-      <div ref={ref} className="relative max-w-7xl mx-auto !pb-20">
+      <div ref={ref} className="relative max-w-7xl mx-auto !pb-10">
         {data.map((item, index) => (
           <div
             key={index}

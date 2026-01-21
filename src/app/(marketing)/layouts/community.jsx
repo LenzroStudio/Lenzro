@@ -1,0 +1,221 @@
+"use client";
+import React from "react";
+import { AuroraText } from "@/components/ui/aurora-text";
+import { Button } from "@/components/ui/button";
+import { SlackIcon } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Marquee } from "@/components/ui/marquee";
+
+const Community = () => {
+  const avatars = [
+    { imageUrl: "https://avatars.githubusercontent.com/u/16860528" },
+    { imageUrl: "https://avatars.githubusercontent.com/u/20110627" },
+    { imageUrl: "https://avatars.githubusercontent.com/u/106103625" },
+    { imageUrl: "https://avatars.githubusercontent.com/u/59228569" },
+    { imageUrl: "https://avatars.githubusercontent.com/u/59442788" },
+    { imageUrl: "https://avatars.githubusercontent.com/u/89768406" },
+  ];
+
+  const reviews = [
+    {
+      name: "Riley Johnson",
+      username: "@rileyj_s",
+      role: "E-commerce Founder",
+      body: "The Blackboard is pure 🔥. I can finally stick my live revenue charts right next to my to-do list and move them around like a physical desk. The spatial awareness it gives me over my daily operations is something I didn't know I was missing until now.",
+      img: "https://avatars.githubusercontent.com/u/16860531",
+    },
+    {
+      name: "Bryant",
+      username: "@brryant",
+      role: "Startup Consultant",
+      body: "This is the most exciting business OS I've seen. Having the Lenzro AI manage my client list while I focus on branding is a total game changer. The 'sticky' widgets mean my most important metrics are always exactly where I left them on the canvas.",
+      img: "https://avatars.githubusercontent.com/u/16860528",
+    },
+    {
+      name: "Karim Ardalan",
+      username: "@KarimArdalan",
+      role: "Digital Agency Owner",
+      body: "The AI organizes my files and updates my website directly from the blackboard. I dragged a product widget onto the board and it was live on my domain in seconds. It’s a tool that actually understands how business owners think—visually and fast!",
+      img: "https://avatars.githubusercontent.com/u/20110627",
+    },
+    {
+      name: "Adam Mura",
+      username: "@AdamMura",
+      role: "Creative Director",
+      body: "We needed a space where branding assets and live analytics lived together. The Blackboard makes it easy to see my color palettes right next to my real-time conversion rates. Resizing widgets on the fly helps me prioritize focus without switching tabs.",
+      img: "https://avatars.githubusercontent.com/u/106103625",
+    },
+    {
+      name: "Jack Rabrot",
+      username: "@rrabrot",
+      role: "Shopify Developer",
+      body: "I asked the AI to prioritize my daily ops and it literally rearranged my workspace to highlight the orders needing shipping first. It’s like having a digital COO that never sleeps. The integration between payments and tasks is absolutely seamless.",
+      img: "https://avatars.githubusercontent.com/u/59228569",
+    },
+    {
+      name: "Jill",
+      username: "@jill",
+      role: "UX Researcher",
+      body: "The Samsung-style edge panel for tools is incredibly clean. It stays out of the way when I'm in deep work, but it's right there the second I need to drop a new widget. It’s Notion-level power with zero of the traditional document clutter.",
+      img: "https://avatars.githubusercontent.com/u/59442788",
+    },
+    {
+      name: "Sanjay Mali",
+      username: "@sanjay",
+      role: "Business Architect",
+      body: "The 'Sticky' logic is addictive. I have my daily revenue reports pinned to the top right and they never move, making the workspace feel permanent and reliable. Using the edge panel to summon Lenzro AI has saved me hours of manual data entry.",
+      img: "https://avatars.githubusercontent.com/u/89768406",
+    },
+    {
+      name: "Arghya Das",
+      username: "@arghya",
+      role: "Product Designer",
+      body: "Essential to my daily workflow. I use the branding widget to swap logos across my entire board in a single click, and it propagates everywhere instantly. The AI agent’s morning reports tell me exactly which clients are waiting before I even start my day.",
+      img: "https://avatars.githubusercontent.com/u/16860531",
+    },
+    {
+      name: "Dillion Verma",
+      username: "@dillion",
+      role: "Creative Technologist",
+      body: "I gave the AI one prompt and it built my entire client CRM and order pipeline on the blackboard in under a minute. The speed is unreal and the visual quality of the widgets is top-tier. Seeing my whole business on one infinite canvas is a relief.",
+      img: "https://avatars.githubusercontent.com/u/16860532",
+    },
+    {
+      name: "Nia Carter",
+      username: "@nia",
+      role: "Digital Nomad",
+      body: "Lenzro helped me move from messy spreadsheets to a fully automated business board. My website status, payments, and messages are finally gathered in one cohesive spatial environment. I can't imagine going back to folders after using this canvas.",
+      img: "https://avatars.githubusercontent.com/u/16860533",
+    },
+    {
+      name: "Leo Tan",
+      username: "@leo",
+      role: "Freelance Developer",
+      body: "I’ve tried every productivity app out there, but nothing compares to this spatial freedom. Being able to resize my invoice tracker right next to my project notes is exactly what I needed. It feels like the app is working for me, not against me.",
+      img: "https://avatars.githubusercontent.com/u/16860534",
+    },
+    {
+      name: "Maya Singh",
+      username: "@maya",
+      role: "UI Designer",
+      body: "The AI agent is genius. It keeps my dashboard up to date and even replies to basic client inquiries for me while I sleep. I can iterate on my business strategy faster than ever because all my data is visually linked on the Blackboard.",
+      img: "https://avatars.githubusercontent.com/u/16860535",
+    },
+    {
+      name: "Lucas Hertz",
+      username: "@hertz_dev",
+      role: "SaaS Founder",
+      body: "The infinite canvas is a game changer for system mapping. I have my server logs sticky-noted right next to my user feedback widgets. Lenzro AI keeps the mess organized so I can focus on scaling my code instead of cleaning my workspace.",
+      img: "https://avatars.githubusercontent.com/u/16860536",
+    },
+    {
+      name: "Elena Rossi",
+      username: "@elena_biz",
+      role: "Marketing Head",
+      body: "I love how the Edge Panel hides all my heavy tools until I'm ready to use them. It keeps the UI minimal but extremely powerful. Managing our global campaign assets on a sticky blackboard has made our team syncs 10x more productive.",
+      img: "https://avatars.githubusercontent.com/u/16860537",
+    },
+    {
+      name: "Marcus Thorne",
+      username: "@m_thorne",
+      role: "Retail Owner",
+      body: "Finally, a tool that handles physical inventory and digital presence in one view. The AI tracks my stock levels and automatically updates the website widget when we run low. It’s the first software that feels like it actually manages the business.",
+      img: "https://avatars.githubusercontent.com/u/16860538",
+    },
+  ];
+
+  const rows = [
+    reviews.slice(0, 4),
+    reviews.slice(4, 8),
+    reviews.slice(8, 12),
+    reviews.slice(12, 15),
+  ];
+
+  const ReviewCard = ({ img, name, username, body }) => (
+    <figure
+      className={cn(
+        "relative w-full max-w-md rounded-xl border p-6 bg-background shadow-md",
+        "border-gray-950/[.1] bg-gray-950/[.02] hover:bg-gray-950/[.05]",
+        "dark:border-gray-50/[.1] dark:bg-gray-50/[.08] dark:hover:bg-gray-50/[.15]",
+      )}
+    >
+      <blockquote className="mt-4 text-base leading-relaxed dark:text-white">
+        {body}
+      </blockquote>
+      <div className="flex flex-col  gap-2">
+        <div>
+          <p className="text-sm text-muted-foreground dark:text-white/60">
+            {username}
+          </p>
+          <figcaption className="text-sm dark:text-white">{name}</figcaption>
+        </div>
+        <img className="rounded-sm w-10 h-10" alt={name} src={img} />
+      </div>
+    </figure>
+  );
+
+  return (
+    <section className="w-full min-h-screen flex flex-col gap-8 items-center justify-center px-4 py-16 md:px-10">
+      <div className="flex gap-2">
+        {avatars.map((src, i) => (
+          <img
+            key={i}
+            src={src.imageUrl}
+            alt=""
+            className="w-10 h-10 rounded-full"
+            style={{ marginLeft: i === 0 ? 0 : -10 }}
+          />
+        ))}
+      </div>
+
+      <div className="text-gray-500 text-center font-medium">
+        700k+ Businesses & startups trust Lenzro
+      </div>
+
+      <h2 className="text-xl md:text-5xl font-bold text-center leading-tight">
+        Helping you Streamline your Operations <br /> and Deliver{" "}
+        <AuroraText>Faster</AuroraText>
+      </h2>
+
+      <div className="flex flex-col md:flex-row gap-4 w-full justify-center mb-10">
+        <Button variant="outline" className="md:w-[25%] text-sm px-6 py-2 rounded-md">
+          <SlackIcon /> Join our community
+        </Button>
+        <Button variant="outline" className="md:w-[25%] text-sm px-6 py-2 rounded-md">
+          Read more reviews
+        </Button>
+      </div>
+
+      {/* Cards for small screens */}
+      <div className="relative  w-full grid grid-cols-2 items-center justify-center overflow-hidden gap-3 md:hidden h-[600px]">
+        {reviews.slice(0, 6).map((review) => (
+          <div key={review.username} className="w-full">
+            <ReviewCard {...review} />
+          </div>
+        ))}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background"></div>
+      </div>
+
+      {/* Marquee for medium and up */}
+      <div className="relative flex h-[600px] w-full flex-row items-center justify-center overflow-hidden gap-2 hidden md:flex">
+        {rows.map((row, i) => (
+          <Marquee
+            key={i}
+            vertical
+            pauseOnHover
+            reverse={i % 2 !== 0}
+            className="[--duration:25s] w-1/4"
+          >
+            {row.map((review) => (
+              <ReviewCard key={review.username} {...review} />
+            ))}
+          </Marquee>
+        ))}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b from-background"></div>
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background"></div>
+      </div>
+    </section>
+  );
+};
+
+export default Community;

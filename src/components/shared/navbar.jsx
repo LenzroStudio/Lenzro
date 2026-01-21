@@ -45,7 +45,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="fixed bg-white/60 dark:bg-black/70 backdrop-blur-3xl mx-auto border-b inset-x-0 z-50 lg:w-full">
-        <ScrollProgress className="top-15" />
+        {/* <ScrollProgress className="top-15" /> */}
 
         {/* Desktop Navbar */}
         <div className="hidden lg:block w-full p-2">
