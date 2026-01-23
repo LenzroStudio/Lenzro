@@ -11,13 +11,10 @@ import {
   LayoutDashboard,
   Mails,
   Sparkles,
-  Square,
   Users,
 } from "lucide-react";
 
 const Solutions = () => {
-
-
   const solutions = [
     {
       title: "The Home Board",
@@ -77,14 +74,10 @@ const Solutions = () => {
     },
   ];
   return (
-    <div className="mt-10 px-4">
-      {/* Main content */}
+    <section className="w-full px-2 sm:px-4 md:px-8 py-10 flex flex-col items-center">
       <div className="w-full max-w-7xl flex flex-col gap-10">
         {/* header */}
-        <h1
-          className="flex flex-col items-center md:flex-row md:items-end text-center w-full justify-center
-            gap-2"
-        >
+        <header className="flex flex-col items-center text-center w-full gap-2">
           <AnimatedGradientText
             speed={2}
             colorFrom="#4ade80"
@@ -93,83 +86,81 @@ const Solutions = () => {
           >
             What&apos;s in Lenzro?
           </AnimatedGradientText>
-          <span className="text-sm md:text-lg">
-            Everything you need to launch your Business and products on the web.
+          <span className="text-sm md:text-lg text-zinc-500 dark:text-zinc-400">
+            Everything you need to launch your business and products on the web.
           </span>
-        </h1>
+        </header>
         {/* content */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 -4 sm:p-6 lg:p-8 ">
-          <Card className="bg-black text-white gap-0  shadow-md hover:shadow-lg transition-shadow duration-300">
-            <div className="h-[30vh]"></div>
-            <CardHeader>
-              <CardTitle className="text-lg flex items-center gap-2 tracking-wider">
-                <LayoutDashboard className="w-5 h-5" />
-                <h1>Customizable Pages</h1>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-xs leading-relaxed text-zinc-500 font-light">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
+          {/* Customizable Pages */}
+          <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 flex flex-col justify-between items-start gap-2 transition-colors">
+            <div></div>
+            <div className="flex flex-col items-start gap-2 transition-colors">
+              <div className="flex items-center gap-4">
+                <div className="flex items-center justify-center w-10 h-10 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900  mx-auto">
+                  <LayoutDashboard className="w-6 h-6 text-zinc-700 dark:text-zinc-200" />
+                </div>
+                <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 text-center">
+                  Customizable Pages
+                </h2>
+              </div>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">
                 Total spatial freedom. Arrange, resize, and filter your business
                 data on an infinite canvas. Keep your modules organized exactly
-                how you work, with components that snap into place
+                how you work, with components that snap into place.
               </p>
-            </CardContent>
-          </Card>
-          <Card className="bg-black text-white gap-0  shadow-md hover:shadow-lg transition-shadow duration-300">
-            <div className="h-[30vh]"></div>
-            <CardHeader>
-              <CardTitle className="text-lg flex items-center gap-2 tracking-wider">
-                <Component className="w-5 h-5" />
-                <h1>Widgets and Elements</h1>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-xs leading-relaxed text-zinc-500 font-light">
-                Powerful, reusable tools for your board. Fully editable and
-                resizable widgets designed for elite functionality. Access our
-                market for specialized templates built to scale your workflow.
+            </div>
+          </div>
+          {/* Widgets and Elements */}
+          <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 flex flex-col gap-4 transition-colors">
+            <div className="flex items-center justify-center w-12 h-12 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 mb-2 mx-auto">
+              <Component className="w-6 h-6 text-zinc-700 dark:text-zinc-200" />
+            </div>
+            <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 text-center">
+              Widgets and Elements
+            </h2>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400 text-center">
+              Powerful, reusable tools for your board. Fully editable and
+              resizable widgets designed for elite functionality. Access our
+              market for specialized templates built to scale your workflow.
+            </p>
+          </div>
+          {/* Analytics and Direction */}
+          <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 flex flex-col gap-4 transition-colors">
+            <div className="flex items-center justify-center w-12 h-12 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900 mb-2 mx-auto">
+              <ChartNoAxesCombined className="w-6 h-6 text-zinc-700 dark:text-zinc-200" />
+            </div>
+            <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 text-center">
+              Analytics and Direction
+            </h2>
+            <p className="text-sm text-zinc-600 dark:text-zinc-400 text-center">
+              Real-time intelligence and AI-driven growth. Monitor visitors,
+              conversions, and revenue with live insights. Lenzro AI analyzes
+              your metrics to provide clear direction for your next move.
+            </p>
+          </div>
+          {/* Dynamic Solutions */}
+          {solutions.map((item, index) => (
+            <div
+              key={index}
+              className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 flex flex-col items-start gap-2 transition-colors"
+            >
+              <div className="flex items-center gap-4">
+                <div className="flex items-center justify-center w-10 h-10 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900  mx-auto">
+                  {item.icon}
+                </div>
+                <h2 className="text-lg text-zinc-900 dark:text-zinc-100">
+                  {item.title}
+                </h2>
+              </div>
+              <p className="text-sm text-zinc-600 dark:text-zinc-400">
+                {item.description}
               </p>
-            </CardContent>
-          </Card>
-          <Card className="bg-black text-white gap-0  shadow-md hover:shadow-lg transition-shadow duration-300">
-            <div className="h-[30vh]"></div>
-            <CardHeader>
-              <CardTitle className="text-lg flex items-center gap-2 tracking-wider">
-                <ChartNoAxesCombined className="w-5 h-5" />
-                <h1>Analytics and Direction</h1>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-xs leading-relaxed text-zinc-500 font-light">
-                Real-time intelligence and AI-driven growth. Monitor visitors,
-                conversions, and revenue with live insights. Lenzro AI analyzes
-                your metrics to provide clear direction for your next move.
-              </p>
-            </CardContent>
-          </Card>
-          {solutions.map((item, index) => {
-            return (
-              <Card
-                key={index}
-                className="bg-black text-white gap-0 shadow-md hover:shadow-lg transition-shadow duration-300"
-              >
-                <CardHeader>
-                  <CardTitle className="text-lg flex items-center gap-2 tracking-wider">
-                    <div className="border p-2 rounded-full">{item.icon}</div>
-                    {item.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-xs leading-relaxed text-zinc-500 font-light">
-                    {item.description}
-                  </p>
-                </CardContent>
-              </Card>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

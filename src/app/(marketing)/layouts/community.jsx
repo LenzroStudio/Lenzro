@@ -131,25 +131,61 @@ const Community = () => {
     reviews.slice(12, 15),
   ];
 
-  const ReviewCard = ({ img, name, username, body }) => (
+  const truncate = (str, n) => (str.length > n ? str.slice(0, n) + "..." : str);
+  const ReviewCard = ({ img, name, username, body, truncateText }) => (
     <figure
       className={cn(
-        "relative w-full max-w-md rounded-xl border p-6 bg-background shadow-md",
-        "border-gray-950/[.1] bg-gray-950/[.02] hover:bg-gray-950/[.05]",
-        "dark:border-gray-50/[.1] dark:bg-gray-50/[.08] dark:hover:bg-gray-50/[.15]",
+        // Smaller card for mobile
+        truncateText
+          ? "relative w-40 max-w-full rounded-xl border p-3 bg-background flex flex-col justify-between min-h-[160px]"
+          : "relative w-80 max-w-full rounded-2xl border p-6 bg-background flex flex-col justify-between min-h-[260px]",
+        // light styles
+        "border-gray-200 bg-white hover:bg-gray-50",
+        // dark styles
+        "dark:border-zinc-800 dark:bg-zinc-900 dark:hover:bg-zinc-800",
+        // transition
+        "transition-colors duration-200",
       )}
     >
-      <blockquote className="mt-4 text-base leading-relaxed dark:text-white">
-        {body}
+      <blockquote
+        className={
+          truncateText
+            ? "mb-2 text-xs font-normal leading-snug text-zinc-800 dark:text-zinc-100"
+            : "mb-4 text-base font-normal leading-relaxed text-zinc-800 dark:text-zinc-100"
+        }
+      >
+        {truncateText ? truncate(body, 80) : body}
       </blockquote>
-      <div className="flex flex-col  gap-2">
-        <div>
-          <p className="text-sm text-muted-foreground dark:text-white/60">
+      <div className="flex items-end justify-between mt-auto pt-2">
+        <div className="flex flex-col">
+          <span
+            className={
+              truncateText
+                ? "font-semibold text-zinc-900 dark:text-zinc-100 text-xs"
+                : "font-semibold text-zinc-900 dark:text-zinc-100 text-sm"
+            }
+          >
             {username}
-          </p>
-          <figcaption className="text-sm dark:text-white">{name}</figcaption>
+          </span>
+          <figcaption
+            className={
+              truncateText
+                ? "text-[10px] text-zinc-500 dark:text-zinc-400 font-normal"
+                : "text-xs text-zinc-500 dark:text-zinc-400 font-normal"
+            }
+          >
+            {name}
+          </figcaption>
         </div>
-        <img className="rounded-sm w-10 h-10" alt={name} src={img} />
+        <img
+          className={
+            truncateText
+              ? "rounded-md w-7 h-7 object-cover border border-zinc-200 dark:border-zinc-700"
+              : "rounded-md w-9 h-9 object-cover border border-zinc-200 dark:border-zinc-700"
+          }
+          alt={name}
+          src={img}
+        />
       </div>
     </figure>
   );
@@ -171,32 +207,42 @@ const Community = () => {
       <div className="text-gray-500 text-center font-medium">
         700k+ Businesses & startups trust Lenzro
       </div>
-
       <h2 className="text-xl md:text-5xl font-bold text-center leading-tight">
         Helping you Streamline your Operations <br /> and Deliver{" "}
         <AuroraText>Faster</AuroraText>
       </h2>
 
       <div className="flex flex-col md:flex-row gap-4 w-full justify-center mb-10">
-        <Button variant="outline" className="md:w-[25%] text-sm px-6 py-2 rounded-md">
+        <Button
+          variant="outline"
+          className="md:w-[25%] text-sm px-6 py-2 rounded-md"
+        >
           <SlackIcon /> Join our community
         </Button>
-        <Button variant="outline" className="md:w-[25%] text-sm px-6 py-2 rounded-md">
+        <Button
+          variant="outline"
+          className="md:w-[25%] text-sm px-6 py-2 rounded-md"
+        >
           Read more reviews
         </Button>
       </div>
 
-      {/* Cards for small screens */}
-      <div className="relative  w-full grid grid-cols-2 items-center justify-center overflow-hidden gap-3 md:hidden h-[600px]">
-        {reviews.slice(0, 6).map((review) => (
-          <div key={review.username} className="w-full">
-            <ReviewCard {...review} />
+      {/* 2-row grid for small screens, medium speed horizontal marquee */}
+      <div className="relative w-full flex flex-col items-center justify-center overflow-hidden gap-2 md:hidden">
+        <Marquee pauseOnHover className="[--duration:20s] w-full">
+          <div className="grid grid-cols-2 grid-rows-2 gap-2 w-full">
+            {reviews.slice(0, 4).map((review, i) => (
+              <div key={review.username} className="flex justify-center">
+                <ReviewCard {...review} truncateText={true} />
+              </div>
+            ))}
           </div>
-        ))}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t from-background"></div>
+        </Marquee>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
       </div>
 
-      {/* Marquee for medium and up */}
+      {/* Marquee for medium and up (vertical, untouched) */}
       <div className="relative flex h-[600px] w-full flex-row items-center justify-center overflow-hidden gap-2 hidden md:flex">
         {rows.map((row, i) => (
           <Marquee

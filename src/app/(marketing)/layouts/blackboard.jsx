@@ -10,11 +10,11 @@ const BlackBoard = () => {
   return (
     <div className="px-10 flex flex-col gap-10">
       <div>
-        <h1 className="text-xl md:text-3xl uppercase lg:text-4xl">
+        <h1 className="text-xl md:text-3xl uppercase lg:text-4xl text-center">
           Introducing <AuroraText>The BlackBoard</AuroraText>
         </h1>
       </div>
-      <div>
+      <div className='md:px-10'>
         <HeroVideoDialog
           className="block dark:hidden"
           animationStyle="from-center"

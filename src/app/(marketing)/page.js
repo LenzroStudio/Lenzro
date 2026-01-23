@@ -7,6 +7,8 @@ import Tour from "./layouts/tour";
 import Solutions from "./layouts/solutions";
 import BlackBoard from "./layouts/blackboard";
 import Community from "./layouts/community";
+import FAQ from "./layouts/faq";
+import LenzroDemo from "./layouts/lenzrodemo";
 
 
 
@@ -55,6 +57,8 @@ export default function Home() {
         <Solutions/>
         <BlackBoard/>
         <Community/>
+        <FAQ/>
+        <LenzroDemo/>
     </div>
   );
 }
