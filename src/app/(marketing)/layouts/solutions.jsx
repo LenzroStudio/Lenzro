@@ -174,7 +174,7 @@ const Solutions = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
           {/* Customizable Pages */}
           <div className="rounded-xl border border-zinc-200 dark:border-zinc-800 bg-white dark:bg-zinc-950 p-6 flex flex-col justify-between items-start gap-2 transition-colors">
-            <div className="relative flex h-[50vh] md:h-[40vh] w-full flex-col items-center justify-center overflow-hidden">
+            <div className="relative flex h-[40vh] w-full flex-col items-center justify-center overflow-hidden">
               <DotPattern
                 glow={true}
                 className={cn(
@@ -245,7 +245,7 @@ const Solutions = () => {
           </div>
           {/* Widgets and Elements */}
           <div className="rounded-xl border border-zinc-200 dark:border-zinc-800  bg-white dark:bg-zinc-950 p-6 flex flex-col justify-between items-start gap-2 transition-colors">
-            <div className="bg-background relative flex size-full h-[50vh] md:h-[40vh] overflow-hidden  ">
+            <div className="bg-background relative flex size-full h-[40vh]  overflow-hidden  ">
               <GridPattern
                 width={30}
                 height={30}
