@@ -73,9 +73,9 @@ const avatars = [
 
 const Footer = () => {
   return (
-    <footer className="w-full bg-white dark:bg-zinc-950  !pb-8 !px-[5%] border-t border-gray-100 dark:border-zinc-800">
+    <footer className="w-full bg-white dark:bg-zinc-950  !pb-8 !px-[5%]">
       <div className="max-w-7xl mx-auto">
-        <hr className="!my-10 border-gray-200 dark:border-zinc-800" />
+        <hr className="!my-10" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 !mb-10">
           <div>
             <h3 className="font-semibold !mb-3">Product</h3>
