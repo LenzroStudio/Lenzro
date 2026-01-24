@@ -39,7 +39,7 @@ const chartConfig = {
 
 export function AnalyticsOverviewChart() {
   return (
-    <Card className="w-full gap-1 bg-transparent shadow-none border-none">
+    <Card className="w-full gap-1 h-full bg-transparent shadow-none border-none">
       <CardHeader>
         <CardTitle className={'text-xs font-normal'}>Business Performance</CardTitle>
         <CardDescription className={'text-xs'}>

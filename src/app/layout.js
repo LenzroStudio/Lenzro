@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/shared/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import CookieConsent from "@/components/shared/CookieConsent";
+import Footer from "@/components/shared/footer";
 
 const outifit = Outfit({
   variable: "--font-outfit",
@@ -33,6 +34,7 @@ export default function RootLayout({ children }) {
           <Navbar />
           <CookieConsent />
           {children}
+          <Footer/>
         </ThemeProvider>
       </body>
     </html>
