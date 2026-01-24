@@ -269,7 +269,7 @@ const Solutions = () => {
                   className={"text-xs h-7 rounded-sm"}
                   onClick={() => toast.success("User created successfully")}
                 >
-                  <Plus className="size-4" /> Add user
+                  <Plus className="size-4" /> Add a new user
                 </Button>
               </div>
               <div className="absolute top-25 md:top-25 left-35 md:left-30 origin-top">
