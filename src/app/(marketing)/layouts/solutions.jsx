@@ -230,7 +230,7 @@ const Solutions = () => {
             <div className="flex flex-col items-start gap-2 transition-colors">
               <div className="flex items-center gap-4">
                 <div className="flex items-center justify-center w-10 h-10 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900  mx-auto">
-                  <LayoutDashboard className="w-6 h-6 text-zinc-700 dark:text-zinc-200" />
+                  <LayoutDashboard className="w-5 h-5 text-zinc-700 dark:text-zinc-200" />
                 </div>
                 <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 text-center">
                   Customizable Pages
@@ -291,7 +291,7 @@ const Solutions = () => {
             <div className="flex flex-col items-start gap-2 transition-colors">
               <div className="flex items-center gap-4">
                 <div className="flex items-center justify-center w-10 h-10 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900  mx-auto">
-                  <LayoutDashboard className="w-6 h-6 text-zinc-700 dark:text-zinc-200" />
+                  <Component className="w-5 h-5 text-zinc-700 dark:text-zinc-200" />
                 </div>
                 <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 text-center">
                   Widgets and Elements
@@ -310,7 +310,7 @@ const Solutions = () => {
             <div className="flex flex-col items-start gap-2 transition-colors">
               <div className="flex items-center gap-4">
                 <div className="flex items-center justify-center w-10 h-10 rounded-full border border-zinc-200 dark:border-zinc-800 bg-zinc-50 dark:bg-zinc-900  mx-auto">
-                  <LayoutDashboard className="w-6 h-6 text-zinc-700 dark:text-zinc-200" />
+                  <ChartNoAxesCombined className="w-5 h-5 text-zinc-700 dark:text-zinc-200" />
                 </div>
                 <h2 className="text-lg font-semibold text-zinc-900 dark:text-zinc-100 text-center">
                   Analytics and Direction
