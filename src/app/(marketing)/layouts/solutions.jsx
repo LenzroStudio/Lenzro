@@ -278,7 +278,7 @@ const Solutions = () => {
                     "bg-blue-300/20 text-blue-500 absolute border dark:border-white border-gray-300"
                   }
                 >
-                  <Clock/>
+                  <Clock />
                   Schedule meeting now
                 </Badge>
                 <Calendar
