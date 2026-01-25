@@ -32,6 +32,11 @@ const MobileMenu = ({ open, onClose }) => (
               </Button>
             </Link>
           </div>
+          <Link href="/auth?mode=register">
+            <Button className=" px-8 md:px-5 py-4 md:py-2 text-sm  md:text-xs h-7 rounded-sm cursor-pointer transition-all duration-300 border">
+              Get Started
+            </Button>
+          </Link>
         </div>
       </motion.div>
     )}
@@ -70,7 +75,7 @@ const Navbar = () => {
             <div className="flex space-x-2 items-center">
               <SearchBarWithShortcut />
               <ModeToggle />
-              <Link href="/signup">
+              <Link href="/auth?mode=register">
                 <Button className="px-5 py-2 text-xs h-7 rounded-sm cursor-pointer transition-all duration-300 border">
                   Get Started
                 </Button>

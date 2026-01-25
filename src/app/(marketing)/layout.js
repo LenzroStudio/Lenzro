@@ -1,7 +1,6 @@
 import { M_PLUS_1_Code, Outfit } from "next/font/google";
-import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
-import CookieConsent from "@/components/shared/CookieConsent";
+import Navbar from "@/components/shared/navbar";
+import { Footer } from "react-day-picker";
 
 const outifit = Outfit({
   variable: "--font-outfit",
@@ -21,17 +20,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${mplusone.variable} antialiased`}>
-      <body>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <CookieConsent />
+    <html lang="en">
+      <body className={`${mplusone.variable} antialiased`}>
+          <Navbar />
           {children}
-        </ThemeProvider>
+          <Footer/>
       </body>
     </html>
   );

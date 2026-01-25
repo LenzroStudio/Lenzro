@@ -18,6 +18,7 @@ import { useSearchStore } from "@/app/store/searchStore";
 const docs = [
   {
     title: "Introduction",
+    route: "/docs/introduction",
     children: [
       { title: "What is Lenzro", route: "/docs/what-is-lenzro" },
       { title: "Why Lenzro", route: "/docs/why-lenzro" },
@@ -34,6 +35,7 @@ const docs = [
   },
   {
     title: "Getting Started",
+    route: "/docs/getting-started",
     children: [
       { title: "Create Your Workspace", route: "/docs/create-workspace" },
       { title: "The Blackboard", route: "/docs/blackboard" },
@@ -45,6 +47,7 @@ const docs = [
   },
   {
     title: "Core Concepts",
+    route: "/docs/core-concepts-section",
     children: [
       { title: "The Blackboard Canvas", route: "/docs/blackboard-canvas" },
       { title: "Widgets", route: "/docs/core-widgets" },
@@ -56,6 +59,7 @@ const docs = [
   },
   {
     title: "The AI Layer",
+    route: "/docs/ai-layer",
     children: [
       { title: "AI Workspace Director", route: "/docs/ai-workspace-director" },
       { title: "How the AI Thinks", route: "/docs/how-ai-thinks" },
@@ -67,6 +71,7 @@ const docs = [
   },
   {
     title: "Business Modules",
+    route: "/docs/business-modules",
     children: [
       { title: "Clients", route: "/docs/clients" },
       { title: "Orders & Payments", route: "/docs/orders-payments" },
@@ -78,6 +83,7 @@ const docs = [
   },
   {
     title: "Customization",
+    route: "/docs/customization",
     children: [
       {
         title: "Creating Your Own Dashboard",
@@ -90,6 +96,7 @@ const docs = [
   },
   {
     title: "Architecture",
+    route: "/docs/architecture",
     children: [
       { title: "System Overview", route: "/docs/system-overview" },
       { title: "Data Model", route: "/docs/data-model" },
@@ -100,6 +107,7 @@ const docs = [
   },
   {
     title: "Security & Privacy",
+    route: "/docs/security-privacy",
     children: [
       { title: "Data Ownership", route: "/docs/data-ownership" },
       { title: "AI Boundaries", route: "/docs/ai-boundaries" },
@@ -108,6 +116,7 @@ const docs = [
   },
   {
     title: "Roadmap",
+    route: "/docs/roadmap",
     children: [
       { title: "What’s Live", route: "/docs/whats-live" },
       { title: "What’s Coming", route: "/docs/whats-coming" },
@@ -264,8 +273,7 @@ export function SearchBarWithShortcut({ mobileTrigger = false }) {
           {/* Custom header with tags and Esc only */}
           <div className="flex items-center justify-between px-4 pt-4 pb-2 border-b">
             <div className="flex gap-2 text-xs font-medium text-muted-foreground">
-              <span className="rounded bg-muted px-2 py-1">App</span>
-              <span className="rounded bg-muted px-2 py-1">Pages</span>
+              <span className="rounded bg-muted px-2 py-1">Search our Documentation</span>
             </div>
           </div>
 

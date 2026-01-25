@@ -1,12 +1,9 @@
-"use client"
+"use client";
 
-import React, { forwardRef, useRef } from "react"
+import React, { forwardRef, useRef } from "react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 import { AnimatedBeam } from "./animated-beam";
-
-
-
 
 const Circle = forwardRef(({ className, children }, ref) => {
   return (
@@ -26,7 +23,6 @@ Circle.displayName = "Circle";
 
 export default Circle;
 
-
 export function AnimatedBeamMultipleOutputDemo({ className }) {
   const containerRef = useRef(null);
   const div1Ref = useRef(null);
@@ -41,7 +37,7 @@ export function AnimatedBeamMultipleOutputDemo({ className }) {
     <div
       className={cn(
         "relative flex h-[500px] w-full items-center justify-center overflow-hidden p-10",
-        className
+        className,
       )}
       ref={containerRef}
     >
@@ -113,7 +109,7 @@ export function AnimatedBeamMultipleOutputDemo({ className }) {
         duration={3}
       />
     </div>
-  )
+  );
 }
 
 const Icons = {
@@ -138,10 +134,10 @@ const Icons = {
     </svg>
   ),
   openai: () => (
-    <div class="relative h-16 w-16 shrink-0 overflow-hidden rounded-md bg-gray-200 p-px shadow-xl dark:bg-neutral-700">
-      <div class="absolute inset-0 scale-[1.4] animate-spin rounded-full bg-conic [background-image:conic-gradient(at_center,transparent,var(--color-blue-500)_20%,transparent_30%)] [animation-duration:2s]"></div>
-      <div class="via-brand absolute inset-0 scale-[1.4] animate-spin rounded-full bg-conic [background-image:conic-gradient(at_center,transparent,var(--color-brand)_20%,transparent_30%)] [animation-delay:1s] [animation-duration:2s]"></div>
-      <div class="relative z-20 flex h-full w-full items-center justify-center rounded-[5px] bg-white dark:bg-neutral-900">
+    <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-md bg-gray-200 p-px shadow-xl dark:bg-neutral-700">
+      <div className="absolute inset-0 scale-[1.4] animate-spin rounded-full bg-conic [background-image:conic-gradient(at_center,transparent,var(--color-blue-500)_20%,transparent_30%)] [animation-duration:2s]"></div>
+      <div className="via-brand absolute inset-0 scale-[1.4] animate-spin rounded-full bg-conic [background-image:conic-gradient(at_center,transparent,var(--color-brand)_20%,transparent_30%)] [animation-delay:1s] [animation-duration:2s]"></div>
+      <div className="relative z-20 flex h-full w-full items-center justify-center rounded-[5px] bg-white dark:bg-neutral-900">
         <img
           src="https://1j8rp7fkdq62hja2.public.blob.vercel-storage.com/Plugin%20icon%20-%202%20%281%29.png"
           className="absolute inset-0 z-50 m-auto size-10 w-full h-full rounded-md"
