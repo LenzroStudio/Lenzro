@@ -75,7 +75,7 @@ const Navbar = () => {
             <div className="flex space-x-2 items-center">
               <SearchBarWithShortcut />
               <ModeToggle />
-              <Link href="/auth?mode=register">
+              <Link href="/auth">
                 <Button className="px-5 py-2 text-xs h-7 rounded-sm cursor-pointer transition-all duration-300 border">
                   Get Started
                 </Button>

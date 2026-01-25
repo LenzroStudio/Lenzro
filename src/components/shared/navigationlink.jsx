@@ -49,7 +49,7 @@ export function NavigationMenuLinks({ onLinkClick }) {
                 Login then start running your business, as simple as that.
               </ListItem>
               <ListItem
-                href="/auth/register"
+                href="/onboarding?setup-your-business"
                 title="Get Started"
                 onClick={onLinkClick}
               >
@@ -69,15 +69,10 @@ export function NavigationMenuLinks({ onLinkClick }) {
               Docs
             </Link>
           </NavigationMenuLink>
+        </NavigationMenuItem>
 
-          <ListItem
-            href="/auth?mode=register"
-            title="Get Started"
-            onClick={onLinkClick}
-          >
-            Create your account and start running your business today.
-          </ListItem>
-
+        {/* Solutions link */}
+        <NavigationMenuItem>
           <NavigationMenuLink
             asChild
             className="px-3 py-1 text-lg md:text-sm text-black dark:text-white hover:text-green-500 transition-colors"

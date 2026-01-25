@@ -118,7 +118,7 @@ export function LoginForm({ className, ...props }) {
           <FieldDescription className="text-center">
             Don&apos;t have an account?{" "}
             <Link
-              href="/auth?mode=register"
+              href="/onboarding?setup-your-business"
               className="underline underline-offset-4"
             >
               Sign up
