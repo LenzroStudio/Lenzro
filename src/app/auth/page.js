@@ -1,9 +1,26 @@
+"use client";
 import { LoginForm } from "@/components/forms/login-form";
-import { AnimatedTooltip } from "@/components/ui/animated-tooltip";
-import { AuroraText } from "@/components/ui/aurora-text";
-import { GridPattern } from "@/components/ui/grid-pattern";
+import dynamic from "next/dynamic";
+
+const AnimatedTooltip = dynamic(
+  () =>
+    import("@/components/ui/animated-tooltip").then(
+      (mod) => mod.AnimatedTooltip,
+    ),
+  { ssr: false },
+);
+const AuroraText = dynamic(
+  () => import("@/components/ui/aurora-text").then((mod) => mod.AuroraText),
+  { ssr: false },
+);
+const GridPattern = dynamic(
+  () => import("@/components/ui/grid-pattern").then((mod) => mod.GridPattern),
+  { ssr: false },
+);
 import { cn } from "@/lib/utils";
 import React from "react";
+import Link from "next/link";
+import { AnimatedGradientText } from "@/components/ui/animated-gradient-text";
 
 const Auth = () => {
   const people = [
@@ -52,10 +69,10 @@ const Auth = () => {
   ];
 
   return (
-    <div className="grid min-h-svh lg:grid-cols-2 ">
+    <div className="grid min-h-svh lg:grid-cols-2">
       <div className="flex flex-col gap-4 p-6 md:p-10">
         <div className="flex justify-center gap-2 md:justify-start">
-          <a href="#" className="flex items-center gap-2 font-medium">
+          <Link href="/" className="flex items-center gap-2 font-medium">
             <div className=" flex size-8 items-center justify-center rounded-md">
               <img
                 src="https://1j8rp7fkdq62hja2.public.blob.vercel-storage.com/Plugin%20icon%20-%202%20%281%29.png"
@@ -63,7 +80,7 @@ const Auth = () => {
               />
             </div>
             Lenzro.
-          </a>
+          </Link>
         </div>
         <div className="flex flex-1 items-center justify-center">
           <div className="w-full max-w-xs">
@@ -88,7 +105,8 @@ const Auth = () => {
         <div className="flex flex-col items-center justify-center mb-10 gap-5 w-full relative z-10">
           <AnimatedTooltip items={people} />
           <p className="text-center">
-            <AuroraText>100,000+</AuroraText> designers & developers have used <br />
+            <AnimatedGradientText> 100,000+</AnimatedGradientText>designers &
+            developers have used <br />
             Lenzro Marketplace.
           </p>
         </div>

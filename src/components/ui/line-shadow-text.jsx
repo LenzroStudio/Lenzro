@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "motion/react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 export function LineShadowText({
   children,
@@ -10,28 +10,29 @@ export function LineShadowText({
   as: Component = "span",
   ...props
 }) {
-  const MotionComponent = motion.create(Component)
-  const content = typeof children === "string" ? children : null
+  const MotionComponent = motion.create(Component);
+  const content = typeof children === "string" ? children : null;
 
   if (!content) {
-    throw new Error("LineShadowText only accepts string content")
+    throw new Error("LineShadowText only accepts string content");
   }
 
   return (
     <MotionComponent
       style={{
-        "--shadow-color": shadowColor
+        "--shadow-color": shadowColor,
       }}
       className={cn(
         "relative z-0 inline-flex",
         "after:absolute after:top-[0.04em] after:left-[0.04em] after:content-[attr(data-text)]",
         "after:bg-[linear-gradient(45deg,transparent_45%,var(--shadow-color)_45%,var(--shadow-color)_55%,transparent_0)]",
-        "after:-z-10 after:bg-[length:0.06em_0.06em] after:bg-clip-text after:text-transparent",
+        "after:-z-10 after:bg-size-[0.06em_0.06em] after:bg-clip-text after:text-transparent",
         "after:animate-line-shadow",
-        className
+        className,
       )}
       data-text={content}
-      {...props}>
+      {...props}
+    >
       {content}
     </MotionComponent>
   );

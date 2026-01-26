@@ -48,9 +48,9 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-5 w-full">
-            <ShinyButton className="w-full sm:w-auto px-5 py-2 text-sm h-10 rounded-sm  cursor-pointer transition-all duration-300 border">
+            <Button className="w-full sm:w-auto px-5 py-2 text-sm h-10 rounded-sm  cursor-pointer transition-all duration-300 border">
               Launch your business
-            </ShinyButton>
+            </Button>
             <Button className="w-full sm:w-auto px-5 py-2 text-sm h-10 rounded-sm cursor-pointer transition-all duration-300 border">
               View pricing
             </Button>
