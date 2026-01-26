@@ -8,7 +8,13 @@ const PREFERENCES_KEY = "userPreferences";
 const PREFERENCES_COOKIE = "userPreferences";
 
 function setCookie(name, value, days = 365) {
-  const expires = new Date(Date.now() + days * 864e5).toUTCString();
+  let expires = "";
+  if (typeof window !== "undefined") {
+    expires = new Date(Date.now() + days * 864e5).toUTCString();
+  } else {
+    // SSR fallback: set a static date
+    expires = new Date(864e5 * days).toUTCString();
+  }
   document.cookie = `${name}=${encodeURIComponent(value)}; expires=${expires}; path=/`;
 }
 function getCookie(name) {

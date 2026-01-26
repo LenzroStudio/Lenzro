@@ -1,8 +1,8 @@
 "use client";
-import React, { useEffect, useId, useRef, useState } from "react"
-import { motion } from "motion/react"
+import React, { useEffect, useId, useRef, useState } from "react";
+import { motion } from "motion/react";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 /**
  * DotPattern Component
@@ -46,37 +46,46 @@ export function DotPattern({
   glow = false,
   ...props
 }) {
-  const id = useId()
-  const containerRef = useRef(null)
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
+  const id = useId();
+  const containerRef = useRef(null);
+  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   useEffect(() => {
     const updateDimensions = () => {
       if (containerRef.current) {
-        const { width, height } = containerRef.current.getBoundingClientRect()
-        setDimensions({ width, height })
+        const { width, height } = containerRef.current.getBoundingClientRect();
+        setDimensions({ width, height });
       }
-    }
-
-    updateDimensions()
-    window.addEventListener("resize", updateDimensions)
-    return () => window.removeEventListener("resize", updateDimensions);
-  }, [])
-
-  const dots = Array.from({
-    length:
-      Math.ceil(dimensions.width / width) *
-      Math.ceil(dimensions.height / height),
-  }, (_, i) => {
-    const col = i % Math.ceil(dimensions.width / width)
-    const row = Math.floor(i / Math.ceil(dimensions.width / width))
-    return {
-      x: col * width + cx,
-      y: row * height + cy,
-      delay: Math.random() * 5,
-      duration: Math.random() * 3 + 2,
     };
-  })
+
+    updateDimensions();
+    window.addEventListener("resize", updateDimensions);
+    return () => window.removeEventListener("resize", updateDimensions);
+  }, []);
+
+  const dots = Array.from(
+    {
+      length:
+        Math.ceil(dimensions.width / width) *
+        Math.ceil(dimensions.height / height),
+    },
+    (_, i) => {
+      const col = i % Math.ceil(dimensions.width / width);
+      const row = Math.floor(i / Math.ceil(dimensions.width / width));
+      let delay = 0;
+      let duration = 2;
+      if (typeof window !== "undefined") {
+        delay = Math.random() * 5;
+        duration = Math.random() * 3 + 2;
+      }
+      return {
+        x: col * width + cx,
+        y: row * height + cy,
+        delay,
+        duration,
+      };
+    },
+  );
 
   return (
     <svg
@@ -84,9 +93,10 @@ export function DotPattern({
       aria-hidden="true"
       className={cn(
         "pointer-events-none absolute inset-0 h-full w-full text-neutral-400/80",
-        className
+        className,
       )}
-      {...props}>
+      {...props}
+    >
       <defs>
         <radialGradient id={`${id}-gradient`}>
           <stop offset="0%" stopColor="currentColor" stopOpacity="1" />
@@ -119,7 +129,8 @@ export function DotPattern({
                   ease: "easeInOut",
                 }
               : {}
-          } />
+          }
+        />
       ))}
     </svg>
   );

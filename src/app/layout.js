@@ -17,6 +17,7 @@ const mplusone = M_PLUS_1_Code({
 export const metadata = {
   title: "Lenzro",
   description: "The operating system for modern businesses and startups",
+  metadataBase: new URL("https://lenzro.com/"),
   openGraph: {
     title: "Lenzro",
     description: "The operating system for modern businesses and startups",
@@ -45,11 +46,14 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${mplusone.variable} antialiased`}>
+    <html
+      lang="en"
+      className={`${mplusone.variable} ${outifit.variable} antialiased`}
+    >
       <body>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >

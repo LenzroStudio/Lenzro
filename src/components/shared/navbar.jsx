@@ -5,7 +5,6 @@ import React, { useState } from "react";
 import { NavigationMenuLinks } from "./navigationlink";
 import { Button } from "../ui/button";
 import { ModeToggle } from "./ModeToggle";
-import { ScrollProgress } from "../ui/scroll-progress";
 import { SearchBarWithShortcut } from "./searchbarwithshortcut";
 import { IconSearch } from "@tabler/icons-react";
 import { useSearchStore } from "@/app/store/searchStore";
@@ -21,17 +20,36 @@ const MobileMenu = ({ open, onClose }) => (
         transition={{ duration: 0.3, ease: "easeInOut" }}
         className="fixed top-14 right-0 w-full h-screen bg-white dark:bg-black z-40 shadow-lg"
       >
-        <div className="p-4">
+        <div className="py-5 px-4 pt-6 flex flex-col gap-4">
           {/* Pass onClose so links close the menu */}
-          <NavigationMenuLinks onLinkClick={onClose} />
-          <div className="px-4 pt-6 flex flex-col gap-6">
+          <Link href="/" className="text-sm " onClick={onClose}>
+            Docs
+          </Link>
+          <Link href="/solutions" className="text-sm " onClick={onClose}>
+            Solutions
+          </Link>
+          <Link href="/pricing" className="text-sm " onClick={onClose}>
+            Pricing
+          </Link>
+          <Link href="/community" className="text-sm " onClick={onClose}>
+            Community
+          </Link>
+          <Link href="/docs/black-board" className="text-sm " onClick={onClose}>
+            BlackBoard
+          </Link>
+          <Link href="/" onClick={onClose}>
+            <Button className=" px-8 md:px-5 py-4 md:py-2 text-sm  md:text-xs h-7 rounded-sm cursor-pointer transition-all duration-300 border">
+              Get Started
+            </Button>
+          </Link>
+          <Button
+            variant="outline"
+            className={"w-fit border rounded-full h-7 text-xs"}
+            onClick={onClose}
+          >
+            Theme toogle
             <ModeToggle />
-            <Link href="/signup" onClick={onClose}>
-              <Button className=" px-8 md:px-5 py-4 md:py-2 text-sm  md:text-xs h-7 rounded-sm cursor-pointer transition-all duration-300 border">
-                Get Started
-              </Button>
-            </Link>
-          </div>
+          </Button>
         </div>
       </motion.div>
     )}
@@ -81,7 +99,7 @@ const Navbar = () => {
 
         {/* Mobile Navbar */}
         <div className="lg:hidden block w-full p-2">
-          <div className="w-full flex relative justify-between md:px-4 md:py-1  py-2 rounded-full bg-transparent transition duration-200">
+          <div className="w-full flex relative justify-between pr-4 py-2 rounded-full bg-transparent transition duration-200">
             <div className="flex flex-row gap-2 items-center">
               <Link
                 className="font-normal flex space-x-2 items-center text-sm mr-4 text-black px-2 py-1 relative z-20"

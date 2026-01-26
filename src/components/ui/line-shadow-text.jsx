@@ -1,6 +1,6 @@
 "use client";
 import { motion } from "motion/react";
-
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 
 export function LineShadowText({
@@ -13,6 +13,12 @@ export function LineShadowText({
   const MotionComponent = motion.create(Component);
   const content = typeof children === "string" ? children : null;
 
+  // Hydration-safe: default to black for SSR, update on client
+  const [hydratedShadowColor, setHydratedShadowColor] = useState("black");
+  useEffect(() => {
+    setHydratedShadowColor(shadowColor);
+  }, [shadowColor]);
+
   if (!content) {
     throw new Error("LineShadowText only accepts string content");
   }
@@ -20,7 +26,7 @@ export function LineShadowText({
   return (
     <MotionComponent
       style={{
-        "--shadow-color": shadowColor,
+        "--shadow-color": hydratedShadowColor,
       }}
       className={cn(
         "relative z-0 inline-flex",

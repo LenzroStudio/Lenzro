@@ -33,7 +33,7 @@ export function LoginForm({ className, ...props }) {
           <FieldLabel htmlFor="email" className="text-xs">
             Business Email
           </FieldLabel>
-          <Input id="email" type="email" placeholder="m@example.com" required />
+          <Input id="email" type="email" placeholder="business@example.com" required />
         </Field>
 
         {/* Password */}

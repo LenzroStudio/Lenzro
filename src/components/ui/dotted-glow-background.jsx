@@ -1,4 +1,4 @@
-"use client";;
+"use client";
 import React, { useEffect, useRef, useState } from "react";
 
 /**
@@ -23,7 +23,7 @@ export const DottedGlowBackground = ({
   backgroundOpacity = 0,
   speedMin = 0.4,
   speedMax = 1.3,
-  speedScale = 1
+  speedScale = 1,
 }) => {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
@@ -36,9 +36,7 @@ export const DottedGlowBackground = ({
     const normalized = variableName.startsWith("--")
       ? variableName
       : `--${variableName}`;
-    const fromEl = getComputedStyle(el)
-      .getPropertyValue(normalized)
-      .trim();
+    const fromEl = getComputedStyle(el).getPropertyValue(normalized).trim();
     if (fromEl) return fromEl;
     const root = document.documentElement;
     const fromRoot = getComputedStyle(root).getPropertyValue(normalized).trim();
@@ -49,7 +47,10 @@ export const DottedGlowBackground = ({
     const root = document.documentElement;
     if (root.classList.contains("dark")) return true;
     if (root.classList.contains("light")) return false;
-    return (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    return (
+      window.matchMedia &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches
+    );
   };
 
   // Keep resolved colors in sync with theme changes and prop updates
@@ -143,15 +144,28 @@ export const DottedGlowBackground = ({
       const rows = Math.ceil(height / gap) + 2;
       const min = Math.min(speedMin, speedMax);
       const max = Math.max(speedMin, speedMax);
-      for (let i = -1; i < cols; i++) {
-        for (let j = -1; j < rows; j++) {
-          const x = i * gap + (j % 2 === 0 ? 0 : gap * 0.5); // offset every other row
-          const y = j * gap;
-          // Randomize phase and speed slightly per dot
-          const phase = Math.random() * Math.PI * 2;
-          const span = Math.max(max - min, 0);
-          const speed = min + Math.random() * span; // configurable rad/s
-          dots.push({ x, y, phase, speed });
+      if (typeof window !== "undefined") {
+        for (let i = -1; i < cols; i++) {
+          for (let j = -1; j < rows; j++) {
+            const x = i * gap + (j % 2 === 0 ? 0 : gap * 0.5); // offset every other row
+            const y = j * gap;
+            // Randomize phase and speed slightly per dot (client only)
+            const phase = Math.random() * Math.PI * 2;
+            const span = Math.max(max - min, 0);
+            const speed = min + Math.random() * span; // configurable rad/s
+            dots.push({ x, y, phase, speed });
+          }
+        }
+      } else {
+        // SSR: deterministic values
+        for (let i = -1; i < cols; i++) {
+          for (let j = -1; j < rows; j++) {
+            const x = i * gap + (j % 2 === 0 ? 0 : gap * 0.5);
+            const y = j * gap;
+            const phase = 0;
+            const speed = min;
+            dots.push({ x, y, phase, speed });
+          }
         }
       }
     };
@@ -181,10 +195,13 @@ export const DottedGlowBackground = ({
           Math.min(width, height) * 0.1,
           width * 0.5,
           height * 0.5,
-          Math.max(width, height) * 0.7
+          Math.max(width, height) * 0.7,
         );
         grad.addColorStop(0, "rgba(0,0,0,0)");
-        grad.addColorStop(1, `rgba(0,0,0,${Math.min(Math.max(backgroundOpacity, 0), 1)})`);
+        grad.addColorStop(
+          1,
+          `rgba(0,0,0,${Math.min(Math.max(backgroundOpacity, 0), 1)})`,
+        );
         ctx.fillStyle = grad;
         ctx.fillRect(0, 0, width, height);
       }
@@ -251,10 +268,12 @@ export const DottedGlowBackground = ({
     <div
       ref={containerRef}
       className={className}
-      style={{ position: "absolute", inset: 0 }}>
+      style={{ position: "absolute", inset: 0 }}
+    >
       <canvas
         ref={canvasRef}
-        style={{ display: "block", width: "100%", height: "100%" }} />
+        style={{ display: "block", width: "100%", height: "100%" }}
+      />
     </div>
   );
 };
