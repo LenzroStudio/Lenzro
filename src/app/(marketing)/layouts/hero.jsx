@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { ShinyButton } from "@/components/ui/shiny-button";
 import { cn } from "@/lib/utils";
 import { ArrowRightIcon, Bot, Brain, Star } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 const Hero = () => {
@@ -48,12 +49,16 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mt-5 w-full">
-            <Button className="w-full sm:w-auto px-5 py-2 text-sm h-10 rounded-sm  cursor-pointer transition-all duration-300 border">
-              Launch your business
-            </Button>
-            <Button className="w-full sm:w-auto px-5 py-2 text-sm h-10 rounded-sm cursor-pointer transition-all duration-300 border">
-              View pricing
-            </Button>
+            <Link href={"/auth"}>
+              <Button className="w-full sm:w-auto px-5 py-2 text-sm h-10 rounded-sm  cursor-pointer transition-all duration-300 border">
+                Launch your business
+              </Button>
+            </Link>
+            <Link href={'/pricing'}>
+              <Button className="w-full sm:w-auto px-5 py-2 text-sm h-10 rounded-sm cursor-pointer transition-all duration-300 border">
+                View pricing
+              </Button>
+            </Link>
           </div>
 
           <div className="mt-5 flex flex-wrap justify-center lg:justify-start items-center gap-2 text-sm">
