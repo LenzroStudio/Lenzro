@@ -100,7 +100,7 @@ export function CapabilityTable() {
     <Table className="min-w-full  text-sm">
       <TableHeader>
         <TableRow>
-          <TableHead className="text-2xl gradient-text border-0">Capability</TableHead>
+          <TableHead className="text-xl gradient-text border-0">Capability</TableHead>
           {plans.map((plan) => (
             <TableHead key={plan} className="border-0 text-lg text-center">
               {plan}
@@ -111,7 +111,7 @@ export function CapabilityTable() {
       <TableBody>
         {capabilities.map((row) => (
           <TableRow key={row.capability}>
-            <TableCell className="text-lg border-0">{row.capability}</TableCell>
+            <TableCell className="text-md border-0">{row.capability}</TableCell>
             {plans.map((plan) => (
               <TableCell key={plan} className="text-center border-0">
                 {typeof row[plan] === "boolean" ? (

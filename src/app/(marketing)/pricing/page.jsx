@@ -222,13 +222,13 @@ const Pricing = () => {
       </div>
 
       {/* Pricing Cards */}
-      <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8 mt-10">
+      <div className="w-full max-w-7xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-3 mt-10">
         {plans.map((plan, idx) => (
           <div
             key={plan.name}
             className={
-              `relative flex flex-col rounded-2xl border-2 border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 p-8 shadow-sm transition-all duration-300 hover:scale-[1.02]` +
-              (plan.highlight ? "border-green-500" : "")
+              `relative flex flex-col rounded-2xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950 p-8 shadow-sm transition-all duration-300` +
+              (plan.highlight ? "border border-green-500" : "")
             }
           >
             {/* Highlight badge */}
@@ -239,22 +239,21 @@ const Pricing = () => {
             )}
             {/* Icon & Title */}
             <div className="flex items-center gap-2 mb-2">
-              <span className="text-2xl">{plan.icon}</span>
               <span className="text-2xl font-semibold tracking-wide text-neutral-900 dark:text-white">
                 {plan.name}
               </span>
             </div>
-            <div className="text-base text-neutral-500 mb-1">
+            <div className="text-sm text-neutral-500 mb-1">
               {plan.subtitle}
             </div>
             <div className="text-xs text-neutral-400 mb-4">
               {plan.description}
             </div>
             {/* Pricing */}
-            <div className="my-6 flex items-end gap-2">
+            <div className="my-6 flex items-center gap-2">
               <HyperText
                 key={billing + plan.name} // re-mounts on billing switch only
-                className="text-4xl font-bold text-neutral-900 dark:text-white"
+                className="text-xl font-bold text-neutral-900 dark:text-white"
                 duration={1400} // slower animation
                 delay={0}
                 startOnView={false}
@@ -265,7 +264,7 @@ const Pricing = () => {
                   : `$${plan.price[billing]}`}
               </HyperText>
               {plan.price[billing] !== "Custom" && (
-                <span className="text-lg text-neutral-500 font-medium">
+                <span className="text-sm text-neutral-500 font-medium">
                   / {billing === "monthly" ? "month" : "year"}
                 </span>
               )}
@@ -276,7 +275,7 @@ const Pricing = () => {
               )}
             </div>
             {/* Button */}
-            <div className="mt-6">
+            <div className="mt-3">
               {plan.name === "Enterprise" ? (
                 <button className="w-full rounded-lg border border-neutral-300 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white py-2 font-medium transition-colors hover:bg-neutral-50 dark:hover:bg-neutral-800">
                   Contact sales
@@ -296,11 +295,11 @@ const Pricing = () => {
               )}
             </div>
             {/* Features */}
-            <ul className="mt-8 space-y-3 text-base text-neutral-800 dark:text-neutral-200">
+            <ul className="mt-5 space-y-3 text-base text-neutral-800 dark:text-neutral-200">
               {plan.includes.map((feature, i) => (
                 <li key={i} className="flex items-start gap-2">
                   <Dot className="size-4" />
-                  <span>{feature}</span>
+                  <span className="text-xs">{feature}</span>
                 </li>
               ))}
             </ul>
