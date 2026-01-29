@@ -69,7 +69,7 @@ const Auth = () => {
   ];
 
   return (
-    <div className="grid min-h-svh lg:grid-cols-2">
+    <div className="grid min-h-svh items-center lg:grid-cols-2">
       <div className="flex flex-col gap-4 p-6 md:p-10">
         <div className="flex justify-center gap-2 md:justify-start">
           <Link href="/" className="flex items-center gap-2 font-medium">
@@ -104,8 +104,8 @@ const Auth = () => {
         </div>
         <div className="flex flex-col items-center justify-center mb-10 gap-5 w-full relative z-10">
           <AnimatedTooltip items={people} />
-          <p className="text-center">
-            <AnimatedGradientText> 100,000+</AnimatedGradientText>designers &
+          <p className="text-center space-x-2">
+            <AuroraText> 100,000+</AuroraText>designers &
             developers have used <br />
             Lenzro Marketplace.
           </p>

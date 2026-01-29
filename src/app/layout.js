@@ -49,6 +49,7 @@ export default function RootLayout({ children }) {
     <html
       lang="en"
       className={`${mplusone.variable} ${outifit.variable} antialiased`}
+      suppressHydrationWarning
     >
       <body>
         <ThemeProvider

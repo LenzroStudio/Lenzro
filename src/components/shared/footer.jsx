@@ -78,13 +78,13 @@ const Footer = () => {
         <hr className="!my-10" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 !mb-10">
           <div>
-            <h3 className="font-semibold !mb-3">Product</h3>
+            <h3 className="!mb-3">Product</h3>
             <ul className="space-y-2">
               {productLinks.map((link) => (
                 <li key={link}>
                   <a
                     href="#"
-                    className="text-gray-700 dark:text-gray-300 hover:underline text-sm"
+                    className="text-gray-700 dark:text-gray-400 hover:underline text-sm"
                   >
                     {link}
                   </a>
@@ -93,13 +93,13 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold !mb-3">Power ups</h3>
+            <h3 className="!mb-3">Power ups</h3>
             <ul className="space-y-2">
               {powerUpsLinks.map((link) => (
                 <li key={link}>
                   <a
                     href="#"
-                    className="text-gray-700 dark:text-gray-300 hover:underline text-sm"
+                    className="text-gray-700 dark:text-gray-400 hover:underline text-sm"
                   >
                     {link}
                   </a>
@@ -108,50 +108,50 @@ const Footer = () => {
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold !mb-3">Community</h3>
+            <h3 className="!mb-3">Community</h3>
             <ul className="space-y-2">
               {communityLinks.map((link) => (
                 <li key={link}>
-                  <a
+                  <Link
                     href="#"
-                    className="text-gray-700 dark:text-gray-300 hover:underline text-sm"
+                    className="text-gray-700 dark:text-gray-400 hover:underline text-sm"
                   >
                     {link}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold !mb-3">Company</h3>
+            <h3 className="!mb-3">Company</h3>
             <ul className="space-y-2">
               {companyLinks.map((link) => (
                 <li key={link.name}>
-                  <a
+                  <Link
                     href="#"
-                    className="text-gray-700 dark:text-gray-300 hover:underline text-sm flex items-center gap-2"
+                    className="text-gray-700 dark:text-gray-400 hover:underline text-sm flex items-center gap-2"
                   >
                     {link.name}
                     {link.badge && (
-                      <span className="bg-pink-100 text-pink-600 text-xs font-semibold !px-2 !py-0.5 rounded ml-1">
+                      <span className="bg-pink-100 text-pink-600 text-xs !px-2 !py-0.5 rounded ml-1">
                         {link.badge}
                       </span>
                     )}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
         </div>
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
-          <Link href="/" className="font-bold flex items-center justify-start">
-            <div className="!p-3 rounded-full bg-black dark:bg-transparent  fixed z-50">
+          <Link href="/" className="flex items-center justify-start">
+            <div className="!p-3 rounded-full bg-black dark:bg-transparent">
               <img
                 src="https://1j8rp7fkdq62hja2.public.blob.vercel-storage.com/Plugin%20icon%20-%202%20%281%29.png"
-                className="absolute inset-0 z-50 m-auto size-10 md:size-20 rounded-xl"
+                className="z-50 m-auto size-8 rounded-xl"
               />
             </div>
-            <h1 className="text-lg flex relative">
+            <h1 className="text-sm md:text-lg flex  relative">
               Lenzro
                 <CopyrightIcon className="w-2 h-2 absolute top-0 left-[100%]" />
             </h1>

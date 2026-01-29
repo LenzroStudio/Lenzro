@@ -1,6 +1,5 @@
 "use client";
-
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Kbd } from "@/components/ui/kbd";
 import { Input } from "@/components/ui/input";
@@ -14,115 +13,10 @@ import {
 import { FileText } from "lucide-react";
 import { useSearchStore } from "@/app/store/searchStore";
 
+import { docs } from "@/lib/constants";
+
 // Example documentation structure
-const docs = [
-  {
-    title: "Introduction",
-    route: "/docs/introduction",
-    children: [
-      { title: "What is Lenzro", route: "/docs/what-is-lenzro" },
-      { title: "Why Lenzro", route: "/docs/why-lenzro" },
-      { title: "Core Concepts", route: "/docs/core-concepts" },
-      {
-        title: "How Lenzro is Different",
-        route: "/docs/how-lenzro-is-different",
-      },
-      {
-        title: "Our Lenzro Team",
-        route: "/docs/our-lenzro-team",
-      },
-    ],
-  },
-  {
-    title: "Getting Started",
-    route: "/docs/getting-started",
-    children: [
-      { title: "Create Your Workspace", route: "/docs/create-workspace" },
-      { title: "The Blackboard", route: "/docs/blackboard" },
-      { title: "Pages & Structure", route: "/docs/pages-structure" },
-      { title: "Widgets", route: "/docs/widgets" },
-      { title: "Edge Panel", route: "/docs/edge-panel" },
-      { title: "Your AI Assistant", route: "/docs/ai-assistant" },
-    ],
-  },
-  {
-    title: "Core Concepts",
-    route: "/docs/core-concepts-section",
-    children: [
-      { title: "The Blackboard Canvas", route: "/docs/blackboard-canvas" },
-      { title: "Widgets", route: "/docs/core-widgets" },
-      { title: "Pages & Schemas", route: "/docs/pages-schemas" },
-      { title: "Views (Table, Board, Gallery)", route: "/docs/views" },
-      { title: "Spatial Productivity", route: "/docs/spatial-productivity" },
-      { title: "Persistence & State", route: "/docs/persistence-state" },
-    ],
-  },
-  {
-    title: "The AI Layer",
-    route: "/docs/ai-layer",
-    children: [
-      { title: "AI Workspace Director", route: "/docs/ai-workspace-director" },
-      { title: "How the AI Thinks", route: "/docs/how-ai-thinks" },
-      { title: "AI Actions", route: "/docs/ai-actions" },
-      { title: "Auto Layout", route: "/docs/auto-layout" },
-      { title: "Smart Priorities", route: "/docs/smart-priorities" },
-      { title: "Semantic Search", route: "/docs/semantic-search" },
-    ],
-  },
-  {
-    title: "Business Modules",
-    route: "/docs/business-modules",
-    children: [
-      { title: "Clients", route: "/docs/clients" },
-      { title: "Orders & Payments", route: "/docs/orders-payments" },
-      { title: "Files", route: "/docs/files" },
-      { title: "Email", route: "/docs/email" },
-      { title: "Analytics", route: "/docs/analytics" },
-      { title: "Website Management", route: "/docs/website-management" },
-    ],
-  },
-  {
-    title: "Customization",
-    route: "/docs/customization",
-    children: [
-      {
-        title: "Creating Your Own Dashboard",
-        route: "/docs/creating-dashboard",
-      },
-      { title: "Custom Schemas", route: "/docs/custom-schemas" },
-      { title: "Custom Views", route: "/docs/custom-views" },
-      { title: "Permissions & Roles", route: "/docs/permissions-roles" },
-    ],
-  },
-  {
-    title: "Architecture",
-    route: "/docs/architecture",
-    children: [
-      { title: "System Overview", route: "/docs/system-overview" },
-      { title: "Data Model", route: "/docs/data-model" },
-      { title: "Widget System", route: "/docs/widget-system" },
-      { title: "State Management", route: "/docs/state-management" },
-      { title: "AI Architecture (RAG)", route: "/docs/ai-architecture" },
-    ],
-  },
-  {
-    title: "Security & Privacy",
-    route: "/docs/security-privacy",
-    children: [
-      { title: "Data Ownership", route: "/docs/data-ownership" },
-      { title: "AI Boundaries", route: "/docs/ai-boundaries" },
-      { title: "Permissions", route: "/docs/security-permissions" },
-    ],
-  },
-  {
-    title: "Roadmap",
-    route: "/docs/roadmap",
-    children: [
-      { title: "What’s Live", route: "/docs/whats-live" },
-      { title: "What’s Coming", route: "/docs/whats-coming" },
-    ],
-  },
-];
+
 // Utility to flatten nested docs
 function flattenDocs(docs) {
   return docs.flatMap(
@@ -273,7 +167,9 @@ export function SearchBarWithShortcut({ mobileTrigger = false }) {
           {/* Custom header with tags and Esc only */}
           <div className="flex items-center justify-between px-4 pt-4 pb-2 border-b">
             <div className="flex gap-2 text-xs font-medium text-muted-foreground">
-              <span className="rounded bg-muted px-2 py-1">Search our Documentation</span>
+              <span className="rounded bg-muted px-2 py-1">
+                Search our Documentation
+              </span>
             </div>
           </div>
 

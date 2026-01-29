@@ -4,6 +4,7 @@ import { Boxes } from "../ui/background-boxes";
 import { cn } from "@/lib/utils";
 import { Button } from "../ui/button";
 import { Bot } from "lucide-react";
+import { AuroraText } from "../ui/aurora-text";
 
 export function BackgroundBoxesDemo() {
   return (
@@ -12,7 +13,7 @@ export function BackgroundBoxesDemo() {
       <div className="absolute inset-0 w-full h-full bg-background z-10 [mask-image:radial-gradient(transparent,white)] pointer-events-none" />
       {/* text div */}
       <div className="relative z-20 rounded-xl p-8 shadow-lg flex flex-col items-center gap-2">
-        <div className="relative h-16 w-16 overflow-hidden rounded-md bg-gray-200 p-px shadow-xl dark:bg-neutral-700">
+        {/* <div className="relative h-16 w-16 overflow-hidden rounded-md bg-gray-200 p-px shadow-xl dark:bg-neutral-700">
           <div className="absolute inset-0 scale-[1.4] animate-spin rounded-full bg-conic [background-image:conic-gradient(at_center,transparent,var(--color-blue-500)_20%,transparent_30%)] [animation-duration:2s]"></div>
           <div className="absolute inset-0 scale-[1.4] animate-spin rounded-full [background-image:conic-gradient(at_center,transparent,var(--color-brand)_20%,transparent_30%)] [animation-delay:1s] [animation-duration:2s]"></div>
           <div className="relative z-20 flex h-full w-full items-center justify-center rounded-md bg-white dark:bg-neutral-900">
@@ -22,16 +23,12 @@ export function BackgroundBoxesDemo() {
               alt=""
             />
           </div>
-        </div>
-        <p className="text-sm MPlusOne gradient-text">
-          The operating system for modern businesses and startups
-        </p>
+        </div> */}
         <h1
           className={"md:text-4xl text-xl text-center text-white relative z-20"}
         >
-          Everything you need to{" "}
-          <span className="gradient-text">build, run</span> <br />
-          and grow your business — in one place.
+          Choose The Perfect Plan That Fits <br /> Your{" "}
+          <AuroraText>Business Goals</AuroraText>
         </h1>
         <p className="text-center MPlusOne text-sm  text-neutral-300 relative z-20">
           Relax. Your business lives here.

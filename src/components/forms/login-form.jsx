@@ -12,13 +12,67 @@ import {
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
 import { useState } from "react";
+import { signIn, signInWithGoogle } from "@/lib/auth";
 import { Eye, EyeOff } from "lucide-react";
+import { toast, Toaster } from "sonner";
 
 export function LoginForm({ className, ...props }) {
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  // Map Firebase error codes to user-friendly messages
+  function getFriendlyError(error) {
+    if (!error?.code) return error?.message || "An error occurred.";
+    switch (error.code) {
+      case "auth/invalid-credential":
+      case "auth/user-not-found":
+      case "auth/wrong-password":
+        return "Invalid email or password.";
+      case "auth/too-many-requests":
+        return "Too many failed attempts. Please try again later.";
+      case "auth/popup-closed-by-user":
+        return "Google sign-in was cancelled.";
+      default:
+        return error.message || "An error occurred.";
+    }
+  }
+
+  // Handle email/password login
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      await signIn(email, password);
+      // Optionally redirect or show success
+    } catch (err) {
+      toast.error(getFriendlyError(err));
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Handle Google login
+  const handleGoogle = async () => {
+    setLoading(true);
+    try {
+      await signInWithGoogle();
+      // Optionally redirect or show success
+    } catch (err) {
+      toast.error(getFriendlyError(err));
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
-    <form className={cn("flex flex-col gap-6", className)} {...props}>
+    <form
+      className={cn("flex flex-col gap-6", className)}
+      {...props}
+      onSubmit={handleSubmit}
+    >
+      <Toaster position="top-center" theme="dark" richColors />
       <FieldGroup>
         {/* Header */}
         <div className="flex flex-col items-center gap-1 text-center">
@@ -33,7 +87,15 @@ export function LoginForm({ className, ...props }) {
           <FieldLabel htmlFor="email" className="text-xs">
             Business Email
           </FieldLabel>
-          <Input id="email" type="email" placeholder="business@example.com" required />
+          <Input
+            id="email"
+            type="email"
+            placeholder="business@example.com"
+            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            disabled={loading}
+          />
         </Field>
 
         {/* Password */}
@@ -56,6 +118,9 @@ export function LoginForm({ className, ...props }) {
               required
               placeholder="******"
               className="pr-10"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              disabled={loading}
             />
             <button
               type="button"
@@ -63,6 +128,7 @@ export function LoginForm({ className, ...props }) {
               onClick={() => setShowPassword((v) => !v)}
               className="absolute right-2 top-1/2 -translate-y-1/2 text-muted-foreground"
               aria-label={showPassword ? "Hide password" : "Show password"}
+              disabled={loading}
             >
               {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
             </button>
@@ -71,7 +137,9 @@ export function LoginForm({ className, ...props }) {
 
         {/* Login button */}
         <Field>
-          <Button type="submit">Login</Button>
+          <Button type="submit" disabled={loading}>
+            {loading ? "Logging in..." : "Login"}
+          </Button>
         </Field>
 
         {/* Separator */}
@@ -85,6 +153,8 @@ export function LoginForm({ className, ...props }) {
             variant="outline"
             type="button"
             className="flex gap-2 items-center"
+            onClick={handleGoogle}
+            disabled={loading}
           >
             <svg
               className="size-4"
@@ -125,6 +195,8 @@ export function LoginForm({ className, ...props }) {
             </Link>
           </FieldDescription>
         </Field>
+
+        {/* Error message handled by toast (Sonner) */}
       </FieldGroup>
     </form>
   );
